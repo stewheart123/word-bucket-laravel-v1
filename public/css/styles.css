@@ -97,7 +97,8 @@ label#current-word {
     margin-left: 1rem;
     font-size: 3rem;
 }
-input[type="text"] {
+/* input[type="text"] */
+ #input-field{
     font-size: 2.8rem;
     text-align: left;
     font-weight: 600;
@@ -174,3 +175,17 @@ p {
   .blink {
     animation: blink 1s step-start 0s infinite;
   }
+
+  .field-inner {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.input-flex {
+    align-items: center;
+    font-size: large;
+}
+
+textarea#gmc-text-area {
+    width: 100%;
+}
