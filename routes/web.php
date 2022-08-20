@@ -21,6 +21,7 @@ Route::get('/play', function () {
     return view('game');
 });
 
+Route::get('/game/{game_data}',[App\Http\Controllers\GameController::class,'LoadGame']);
 Route::get('/adversaries', [App\Http\Controllers\UserDetailController::class,'ShowAllPublicUsers']);
 Route::get('/games-index', [App\Http\Controllers\CreateGameController::class,'index']);
 Route::get('/create', [App\Http\Controllers\CreateGameController::class,'createGame']);

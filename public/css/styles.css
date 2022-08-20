@@ -3,6 +3,10 @@
     font-family: system-ui;
     font-weight: 500;
     background-color: rgb(61, 58, 58);
+    height: 100%;
+}
+.game p {
+    font-size: 1rem;
 }
 h1 {
     text-align: center;
@@ -133,18 +137,15 @@ p {
     text-align: center;
 }
 .helper-area {
-    bottom: 0;
     border: 2px solid grey;
     background-color: #c5bc8e;
-    margin: 0 auto 1rem;
     width: 49%;
-    position: absolute;
     color: #16120a;
-    left: 23%;
     border-radius: 0.7rem;
     font-size: 1.5rem;
     padding: 2rem;
     text-align: center;
+    margin: 2rem auto 0;
 }
 .helper-area p {
     font-size: 2rem;
@@ -157,10 +158,10 @@ p {
     border-radius: 15px;
 }
 .uk-flag {
-    background-image: url('uk-flag.png');
+    background-image: url('/images/uk-flag.png');
 }
 .it-flag {
-    background-image: url('italy-flag.png');
+    background-image: url('/images/italy-flag.png');
 }
 #back-button {
     display: none;
@@ -188,4 +189,7 @@ p {
 
 textarea#gmc-text-area {
     width: 100%;
+}
+#data-holder { 
+    display: none;
 }

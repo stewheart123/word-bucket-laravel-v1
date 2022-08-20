@@ -6,59 +6,73 @@ var viewLanguage;
 var hiddenLanguage
 var viewLanguageOptions = ["UK", "IT"];
 var finalRoundComplete = false;
-const wordBundle = {
-        "word bundle name" : "objects",
-        "words" : [
-            {
-                "ID" : 1,
-                "UK" : "dog",
-                "IT" : "kane",
-                "BUCKET" : 1,
-                "IT-CORRECT" : false,
-                "UK-CORRECT" : false,
-                "ROUND-COMPLETE" : false,
-                "CAN-COMPLETE" : false,
-                // "HELPER" : ""
-            }
-            ,
-            {
-                "ID" : 2,
-                "UK": "cat",
-                "IT" : "gato",
-                "BUCKET" : 1,
-                "IT-CORRECT" : false,
-                "UK-CORRECT" : false,
-                "ROUND-COMPLETE" : false,
-                "CAN-COMPLETE" : false
-                // "HELPER" : ""
-            }
-            ,
-            {
-                "ID" : 3,
-                "UK": "cow",
-                "IT" : "muca",
-                "BUCKET" : 1,
-                "IT-CORRECT" : false,
-                "UK-CORRECT" : false,
-                "ROUND-COMPLETE" : false,
-                "CAN-COMPLETE" : false
-                // "HELPER" : ""
-            }
-            ,
-            {
-                "ID" : 4,
-                "UK": "duck",
-                "IT" : "anatra",
-                "BUCKET" : 1,
-                "IT-CORRECT" : false,
-                "UK-CORRECT" : false,
-                "ROUND-COMPLETE" : false,
-                "CAN-COMPLETE" : false
-                // "HELPER" : ""
-            }
-        ]
-    }
-var words = wordBundle['words'];
+var wordbundleRaw = $('#data-holder').text();
+var wordBundle = wordbundleRaw;
+var wordsJS = JSON.parse(wordBundle);
+///console.table(wordBundle);
+//console.table(JSON.parse(wordbundleRaw));
+$(wordsJS["WORDS"]).each(function(index, value){
+    value["ID"] = index;
+    value["BUCKET"] = 1;
+    value["IT-CORRECT"] = false;
+    value["UK-CORRECT"] = false;
+    value["ROUND-COMPLETE"] = false;
+    value["CAN-COMPLETE"] = false;
+});
+console.table(wordsJS["WORDS"]);
+var words = wordsJS["WORDS"];
+// const wordBundle = {
+//         "word bundle name" : "objects",
+//         "words" : [
+//             {
+//                 "ID" : 1,
+//                 "UK" : "dog",
+//                 "IT" : "kane",
+//                 "BUCKET" : 1,
+//                 "IT-CORRECT" : false,
+//                 "UK-CORRECT" : false,
+//                 "ROUND-COMPLETE" : false,
+//                 "CAN-COMPLETE" : false,
+//                 // "HELPER" : ""
+//             }
+//             ,
+//             {
+//                 "ID" : 2,
+//                 "UK": "cat",
+//                 "IT" : "gato",
+//                 "BUCKET" : 1,
+//                 "IT-CORRECT" : false,
+//                 "UK-CORRECT" : false,
+//                 "ROUND-COMPLETE" : false,
+//                 "CAN-COMPLETE" : false
+//                 // "HELPER" : ""
+//             }
+//             ,
+//             {
+//                 "ID" : 3,
+//                 "UK": "cow",
+//                 "IT" : "muca",
+//                 "BUCKET" : 1,
+//                 "IT-CORRECT" : false,
+//                 "UK-CORRECT" : false,
+//                 "ROUND-COMPLETE" : false,
+//                 "CAN-COMPLETE" : false
+//                 // "HELPER" : ""
+//             }
+//             ,
+//             {
+//                 "ID" : 4,
+//                 "UK": "duck",
+//                 "IT" : "anatra",
+//                 "BUCKET" : 1,
+//                 "IT-CORRECT" : false,
+//                 "UK-CORRECT" : false,
+//                 "ROUND-COMPLETE" : false,
+//                 "CAN-COMPLETE" : false
+//                 // "HELPER" : ""
+//             }
+//         ]
+//     }
 //console.log(wordBundle['words'][0]["UK"]);
 $('#input-field').focus(function(){
 $('#input-field').val('');

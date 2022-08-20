@@ -3,6 +3,8 @@
 @section('game')
 
 <section class="game">
+    <div id="data-holder">{{$returned_game_data}}</div>
+    
 <div class="bucket-labels">
     <label class="bucket-lab">tricky</label>
     <label class="bucket-lab">getting there!</label>
