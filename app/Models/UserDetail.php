@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $UD_FOLLOWER_COUNT
  * @property string $UD_ACC_TYPE
  * @property int|null $UD_PROFILE_PIC
+ * @property bool $UD_VISIBLE
  *
  * @package App\Models
  */
@@ -28,11 +29,12 @@ class UserDetail extends Model
 	protected $primaryKey = 'UD_ID';
 	public $timestamps = false;
 
-	// protected $casts = [
-	// 	'UD_LINKING_ID' => 'int',
-	// 	'UD_FOLLOWER_COUNT' => 'int',
-	// 	'UD_PROFILE_PIC' => 'int'
-	// ];
+	protected $casts = [
+		'UD_LINKING_ID' => 'int',
+		'UD_FOLLOWER_COUNT' => 'int',
+		'UD_PROFILE_PIC' => 'int',
+		'UD_VISIBLE' => 'bool'
+	];
 
 	protected $fillable = [
 		'UD_LINKING_ID',
@@ -41,6 +43,7 @@ class UserDetail extends Model
 		'UD_META',
 		'UD_FOLLOWER_COUNT',
 		'UD_ACC_TYPE',
-		'UD_PROFILE_PIC'
+		'UD_PROFILE_PIC',
+		'UD_VISIBLE'
 	];
 }

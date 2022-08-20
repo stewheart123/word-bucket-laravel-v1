@@ -27,10 +27,10 @@ class Game extends Model
 	protected $primaryKey = 'GM_ID';
 	public $timestamps = false;
 
-	protected $casts = [
-		'GM_AUTHOR_ID' => 'int',
-		'GM_PUBLIC' => 'bool'
-	];
+	// protected $casts = [
+	// 	'GM_AUTHOR_ID' => 'int',
+	// 	'GM_PUBLIC' => 'bool'
+	// ];
 
 	protected $fillable = [
 		'GM_AUTHOR_ID',

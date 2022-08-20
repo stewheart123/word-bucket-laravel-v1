@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <a class="navbar-brand" href="/grow">Grow</a>
+                        <a class="navbar-brand" href="/games-index">Grow</a>
                         <a class="navbar-brand" href="/language-select">Language</a>
                         @if (Auth::check())              
                         <a class="navbar-brand" href="/adversaries">Adversaries</a>
@@ -82,6 +82,9 @@
         <main class="py-4">
             @yield('content')
             @yield('game')
+            @yield('public-adversaries')
+            @yield('games-index')
+            @yield('create-game')
         </main>
     </div>
 </body>

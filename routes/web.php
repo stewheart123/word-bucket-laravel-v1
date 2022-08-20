@@ -14,13 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/play', function () {
     return view('game');
 });
 
+Route::get('/adversaries', [App\Http\Controllers\UserDetailController::class,'ShowAllPublicUsers']);
+Route::get('/games-index', [App\Http\Controllers\CreateGameController::class,'index']);
+Route::get('/create', [App\Http\Controllers\CreateGameController::class,'createGame']);
+Route::post('/create-game', [App\Http\Controllers\CreateGameController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
