@@ -21,61 +21,9 @@ $(wordsJS["WORDS"]).each(function(index, value){
 });
 console.table(wordsJS["WORDS"]);
 var words = wordsJS["WORDS"];
-// const wordBundle = {
-//         "word bundle name" : "objects",
-//         "words" : [
-//             {
-//                 "ID" : 1,
-//                 "UK" : "dog",
-//                 "IT" : "kane",
-//                 "BUCKET" : 1,
-//                 "IT-CORRECT" : false,
-//                 "UK-CORRECT" : false,
-//                 "ROUND-COMPLETE" : false,
-//                 "CAN-COMPLETE" : false,
-//                 // "HELPER" : ""
-//             }
-//             ,
-//             {
-//                 "ID" : 2,
-//                 "UK": "cat",
-//                 "IT" : "gato",
-//                 "BUCKET" : 1,
-//                 "IT-CORRECT" : false,
-//                 "UK-CORRECT" : false,
-//                 "ROUND-COMPLETE" : false,
-//                 "CAN-COMPLETE" : false
-//                 // "HELPER" : ""
-//             }
-//             ,
-//             {
-//                 "ID" : 3,
-//                 "UK": "cow",
-//                 "IT" : "muca",
-//                 "BUCKET" : 1,
-//                 "IT-CORRECT" : false,
-//                 "UK-CORRECT" : false,
-//                 "ROUND-COMPLETE" : false,
-//                 "CAN-COMPLETE" : false
-//                 // "HELPER" : ""
-//             }
-//             ,
-//             {
-//                 "ID" : 4,
-//                 "UK": "duck",
-//                 "IT" : "anatra",
-//                 "BUCKET" : 1,
-//                 "IT-CORRECT" : false,
-//                 "UK-CORRECT" : false,
-//                 "ROUND-COMPLETE" : false,
-//                 "CAN-COMPLETE" : false
-//                 // "HELPER" : ""
-//             }
-//         ]
-//     }
-//console.log(wordBundle['words'][0]["UK"]);
+
 $('#input-field').focus(function(){
-$('#input-field').val('');
+    $('#input-field').val('');
 });
 
 swapLanguage(isUKWord);
@@ -154,8 +102,9 @@ function resetRound() {
 
 function deal() {
     $(words).each(function(index, value){
-        if(value["ROUND-COMPLETE"] == false) {
-            selectedWordObject = value ;
+        var randomItem = words[Math.floor(Math.random()*words.length)];
+        if(randomItem["ROUND-COMPLETE"] == false) {
+            selectedWordObject = randomItem;
             //console.log(selectedWordObject["IT"]);
             $('#current-word').text(selectedWordObject[viewLanguage]);
             return false;
