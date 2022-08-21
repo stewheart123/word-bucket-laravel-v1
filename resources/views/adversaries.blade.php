@@ -1,7 +1,26 @@
 @extends('layouts.app')
 @section('public-adversaries')
 
-@foreach ($all_public_users as $public_user)
-<p>{{$public_user->name}}</p>
-@endforeach
+<div class="d-flex justify-content-start">
+    <div class="memory-area flex-column">
+        <label>users</label>
+        @foreach ($all_public_users as $public_user)
+        <div class="card p-2 m-2">{{$public_user->name}}</div>
+
+        <form action="create-adversary" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type = "hidden" name = "UD_ID" value = "{{$public_user->id}}" />
+            <button type="submit" class="btn btn-outline-standard btn-sm">Join</button>
+        </form>
+        @endforeach
+    </div>
+    <!--  when clicked, shows conainer with data including list of games? bio, profile pic, nationality?-->
+    <div class="memory-area flex-column">
+        <label>Wordbucket Offical</label>
+    </div>
+    <div class="memory-area flex-column">
+        <label>Adversaries' memories</label>
+    </div>
+
+</div>
 @endsection

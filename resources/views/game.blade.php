@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('game')
+@guest
+    <a class="navbar-brand" href="/games-index-demo">back</a>
+@endguest
 
+@if (Auth::check())              
+    <a class="navbar-brand" href="/games-index">back</a>                   
+@endif
 <section class="game">
     <div id="data-holder">{{$returned_game_data}}</div>
     

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\UserDetail;
+use App\Models\User;
 use App\Models\Language;
 use Illuminate\Support\Facades\DB;
 use Auth;
@@ -12,13 +14,45 @@ class CreateGameController extends Controller
 {
     //
     public function index(){
-        $all_public_games = DB::table('games')->where('GM_PUBLIC','=', 1)->get();
-        return view('games-index', compact('all_public_games'));
+        $personal_games = DB::table('games')->where('GM_AUTHOR_ID','=', Auth::user()->id )->get();
+
+        $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',8)->get();
+
+        $all_public_games = DB::table('games')->where('GM_PUBLIC','=', 1)
+        ->where('GM_AUTHOR_ID','!=', Auth::user()->id)->get();
+
+        $current_user_details = DB::table('user_details')
+        ->join('users', 'user_details.UD_LINKING_ID', '=', 'users.id')
+        ->select( 'user_details.*', 'users.*' )
+        ->where('users.id', '=', Auth::user()->id)->first();
+
+        $adver_json = json_decode($current_user_details->UD_ADVERSARIES);
+        $user_adversaries = DB::table('user_details')
+            ->join('users', 'user_details.UD_LINKING_ID', '=', 'users.id')
+            ->select( 'user_details.*', 'users.*' )
+            ->where('user_details.UD_VISIBLE', '=', true)
+            //where is in array
+            ->whereIn('users.id' , $adver_json )
+            ->where('users.id', '!=', Auth::user()->id)
+            ->get();
+
+       //dd($user_adversaries);
+
+        $languages = DB::table('languages')->get();
+        return view('games-index', compact('personal_games', 'wordbucket_official_games' ,'all_public_games', 'user_adversaries', 'languages'));
     }
 
     public function createGame(){
         $languages = DB::table('languages')->get();
         return view('create-game', compact('languages'));
+    }
+
+    public function loggedOutGames() {
+        
+        $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',8)->get();
+        
+        $languages = DB::table('languages')->get();
+        return view('games-index-demo', compact('wordbucket_official_games' ,'languages'));
     }
 
     public function store(Request $request){
@@ -52,8 +86,10 @@ class CreateGameController extends Controller
 
     }
 
-    public function destroy(){
-
+    public function destroy(Request $request){
+        $game_to_delete = Game::where('GM_ID', $request->GM_ID)->where('GM_AUTHOR_ID', Auth::user()->id);
+        $game_to_delete->delete();
+        return redirect('/games-index');
     }
 
     public function edit(){

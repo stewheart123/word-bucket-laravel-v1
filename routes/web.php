@@ -23,7 +23,10 @@ Route::get('/play', function () {
 
 Route::get('/game/{game_data}',[App\Http\Controllers\GameController::class,'LoadGame']);
 Route::get('/adversaries', [App\Http\Controllers\UserDetailController::class,'ShowAllPublicUsers']);
+Route::post('/create-adversary', [App\Http\Controllers\UserDetailController::class, 'store']);
 Route::get('/games-index', [App\Http\Controllers\CreateGameController::class,'index']);
+Route::post('/destroyGame', [App\Http\Controllers\CreateGameController::class, 'destroy']);
+Route::get('/games-index-demo', [App\Http\Controllers\CreateGameController::class,'loggedOutGames']);
 Route::get('/create', [App\Http\Controllers\CreateGameController::class,'createGame']);
 Route::post('/create-game', [App\Http\Controllers\CreateGameController::class, 'store']);
 Auth::routes();

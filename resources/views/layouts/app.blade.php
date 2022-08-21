@@ -32,9 +32,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <a class="navbar-brand" href="/games-index">Grow</a>
-                        <a class="navbar-brand" href="/language-select">Language</a>
+                    @guest
+                        <a class="navbar-brand" href="/games-index-demo">Demo</a>
+                    @endguest
+                        <!-- <a class="navbar-brand" href="/language-select">Language</a> -->
                         @if (Auth::check())              
+                        <a class="navbar-brand" href="/games-index">Learn</a>
                         <a class="navbar-brand" href="/adversaries">Adversaries</a>
                         <a class="navbar-brand" href="/create">Create</a>
                         @endif
@@ -84,6 +87,7 @@
             @yield('game')
             @yield('public-adversaries')
             @yield('games-index')
+            @yield('games-index-demo')
             @yield('create-game')
         </main>
     </div>

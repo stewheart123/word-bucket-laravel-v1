@@ -112,7 +112,7 @@ label#current-word {
     width: 20rem;
     margin: 1rem  auto 0 1rem;
 }
-strong {
+.game strong {
     font-size: 3rem;
 }
 .special-button {
@@ -192,4 +192,19 @@ textarea#gmc-text-area {
 }
 #data-holder { 
     display: none;
+}
+
+.game-container p {
+    margin: 0;
+    text-align: left;
+    display: inline;
+}
+.memory-area a {
+    text-decoration: none;
+}
+.game-container {
+    width: 25vw;
+}
+.game-container em {
+ text-align: right;
 }
