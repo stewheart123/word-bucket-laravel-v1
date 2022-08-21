@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $UD_ID
  * @property int $UD_LINKING_ID
- * @property string|null $UD_ADVERSARIES
+ * @property string $UD_ADVERSARIES
  * @property string|null $UD_BIO
  * @property string|null $UD_META
  * @property int|null $UD_FOLLOWER_COUNT
