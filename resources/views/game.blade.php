@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('game')
-@guest
-    <a class="navbar-brand" href="/games-index-demo">back</a>
-@endguest
-
-@if (Auth::check())              
-    <a class="navbar-brand" href="/games-index">back</a>                   
-@endif
 <section class="game">
+    @guest
+        <a class="btn btn-primary btn-sm" href="/games-index-demo">back</a>
+    @endguest
+    
+    @if (Auth::check())              
+        <a class="btn btn-primary btn-sm" href="/games-index">back</a>                   
+    @endif
     <div id="data-holder">{{$returned_game_data}}</div>
     
 <div class="bucket-labels">
@@ -21,7 +21,13 @@
     <div class="bucket yellow" id="yellow-bucket">test</div>
     <div class="bucket green" id="green-bucket">test</div>
 </div>
-<a href="/" id="back-button" class="special-button">back</a>
+@guest
+    <a href="/games-index-demo" id="back-button" class="special-button">back</a>
+@endguest
+
+@if (Auth::check())              
+    <a href="/games-index" id="back-button" class="special-button">back</a>                    
+@endif
 <div class="input-assembly">
     <div id="country-holder"></div>
     <div class="input-container">
@@ -37,5 +43,5 @@
 <div class="helper-area" id="helper-area">Welcome to WordBucket! <br>Type the word in the language matching the flag.</div>
 
 </section>
-<script type="text/javascript" src="{{asset('js/test.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/game.js')}}"></script>
 @endsection
