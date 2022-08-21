@@ -5,6 +5,8 @@
 
 <section class="game-maker-wizard">
     <!-- can update by bringing in language dropdowns -->
+    <div id="add-word-button" class="btn btn-primary btn-lg">Add Word</div>
+    <div id="ready-button" class="btn btn-primary btn-lg">Ready</div>
     <div class="d-flex input-flex">
         <div class="field-inner">
             <label> native word</label>
@@ -21,8 +23,6 @@
         </div>
         <div class="remove-word-button btn btn-warning btn-lg">Remove Word</div>
      </div>
-    <div id="add-word-button" class="btn btn-primary btn-lg">Add Word</div>
-    <div id="ready-button" class="btn btn-primary btn-lg">Ready</div>
 </section>
 <form action="/create-game" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
