@@ -1,7 +1,16 @@
 var arrayOfJson = [];
-const nativeLang = '"UK"';
-const foreignLang = '"IT"';
+var nativeLang = '"' + $('#native-select').val() + '"'; 
+var foreignLang = '"' + $('#foreign-select').val() + '"';
 
+$('#native-select').change(function(){
+    nativeLang = '"' + $('#native-select').val() + '"'; 
+    console.log(nativeLang);
+});
+
+$('#foreign-select').change(function(){
+    foreignLang = '"' + $('#foreign-select').val() + '"'; 
+    console.log(foreignLang);
+});
 //separate function for building a json object..
 
 $('#add-word-button').click(function() {
@@ -18,16 +27,16 @@ $('#ready-button').click(function() {
     //loops over each input row somehow..
     var isLast = false;
     $('.input-flex').each(function(index){
-    //setup vars using selectors, pass them to the function arguments
-    var inputNative = $(this).find('.native-input').val();
-    var inputForeign = $(this).find('.foreign-input').val();
-    var inputHelper = $(this).find('.helper-input').val();
-    // console.log( inputHelper);
-    if(index == $('.input-flex').length-1 ) {
-        isLast = true;
-    }
-    buildJSONword(inputNative, inputForeign, inputHelper, isLast);
-});
+        //setup vars using selectors, pass them to the function arguments
+        var inputNative = $(this).find('.native-input').val();
+        var inputForeign = $(this).find('.foreign-input').val();
+        var inputHelper = $(this).find('.helper-input').val();
+        // console.log( inputHelper);
+        if(index == $('.input-flex').length-1 ) {
+            isLast = true;
+        }
+            buildJSONword(inputNative, inputForeign, inputHelper, isLast);
+    });
 
     updateJSON();
 });
@@ -35,6 +44,7 @@ $('#ready-button').click(function() {
 function RemoveRow(obj) {
     console.log(obj);
     $(obj).parent().remove();
+    arrayOfJson.pop();
 }
 
 function newInputRow() {
@@ -69,7 +79,9 @@ function buildJSONword(nativeInput, foreignInput, helperInput, last) {
 }
 
 function updateJSON() {
-    var buildStringFinal = '{ "WORDS" : [';
+    $('#gmc-text-area').empty();
+    var buildStringFinal = '';
+     buildStringFinal = '{ "WORDS" : [';
     $(arrayOfJson).each(function(index, value){
         buildStringFinal += value;
     });

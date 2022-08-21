@@ -28,6 +28,21 @@
     {{ csrf_field() }}
           <div class="form-group row">
               <div class="col-lg-12 p-3">
+                <label>select native language</label>
+              <select id='native-select' class="ms-3" name="GM_NATIVE_SHORTHAND">
+                @foreach($languages as $native)
+                    <option value="{{$native->LA_SHORTHAND}}">{{$native->LA_DISPLAY_NAME}}
+                    </option>
+                @endforeach
+                </select>
+
+                <label>select foreign language</label>
+              <select id='foreign-select' class="ms-3" name="GM_FOREIGN_SHORTHAND">
+                @foreach($languages as $native)
+                    <option value="{{$native->LA_SHORTHAND}}">{{$native->LA_DISPLAY_NAME}}
+                    </option>
+                @endforeach
+                </select>
 
                 <label for="GM_TITLE" class="col-sm-12 col form-label" style="font-weight: bold;">Game Title</label>
                 <input class="mb-3" type="text" class="form-control form-control-sm" name="GM_TITLE">

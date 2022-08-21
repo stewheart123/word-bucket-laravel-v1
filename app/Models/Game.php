@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $GM_META
  * @property string $GM_TITLE
  * @property string|null $GM_DESCRIPTION
+ * @property int|null $GM_NATIVE_ID
+ * @property int|null $GM_FOREIGN_ID
  *
  * @package App\Models
  */
@@ -29,7 +31,9 @@ class Game extends Model
 
 	// protected $casts = [
 	// 	'GM_AUTHOR_ID' => 'int',
-	// 	'GM_PUBLIC' => 'bool'
+	// 	'GM_PUBLIC' => 'bool',
+	// 	'GM_NATIVE_ID' => 'int',
+	// 	'GM_FOREIGN_ID' => 'int'
 	// ];
 
 	protected $fillable = [
@@ -38,6 +42,8 @@ class Game extends Model
 		'GM_PUBLIC',
 		'GM_META',
 		'GM_TITLE',
-		'GM_DESCRIPTION'
+		'GM_DESCRIPTION',
+		'GM_NATIVE_ID',
+		'GM_FOREIGN_ID'
 	];
 }
