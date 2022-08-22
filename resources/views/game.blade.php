@@ -42,6 +42,7 @@
 </div>
 <div class="helper-area" id="helper-area">Welcome to WordBucket! <br>Type the word in the language matching the flag.</div>
 
+
 </section>
 <script type="text/javascript" src="{{asset('js/game.js')}}"></script>
 @endsection

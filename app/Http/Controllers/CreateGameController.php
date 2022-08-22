@@ -49,7 +49,7 @@ class CreateGameController extends Controller
 
     public function loggedOutGames() {
         
-        $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',8)->get();
+        $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',11)->get();
         
         $languages = DB::table('languages')->get();
         return view('games-index-demo', compact('wordbucket_official_games' ,'languages'));

@@ -12,7 +12,7 @@ var wordsJS = JSON.parse(wordBundle);
 ///console.table(wordBundle);
 //console.table(JSON.parse(wordbundleRaw));
 $(wordsJS["WORDS"]).each(function(index, value){
-    value["ID"] = index;
+    value["ID"] = index +1;
     value["BUCKET"] = 1;
     value["IT-CORRECT"] = false;
     value["UK-CORRECT"] = false;
@@ -101,10 +101,14 @@ function resetRound() {
 }
 
 function deal() {
-    $(words).each(function(index, value){
-        var randomItem = words[Math.floor(Math.random()*words.length)];
-        if(randomItem["ROUND-COMPLETE"] == false) {
-            selectedWordObject = randomItem;
+    // INSTEAD OF LOOPING OV3ER WORDS- MAKE ARRAY OF RANDOM NUMBERS, 
+    //while random number array is not nothing, get word index based on random array
+    //remove item from random array ( so its shorter and shorter)
+    var wordsRandomised = words.slice().sort(function(a, b) { return 0.5 - Math.random() }); // returns a new sorted array
+    
+    $(wordsRandomised).each(function(index, value){
+        if(value["ROUND-COMPLETE"] == false) {
+            selectedWordObject = value;
             //console.log(selectedWordObject["IT"]);
             $('#current-word').text(selectedWordObject[viewLanguage]);
             return false;
@@ -194,10 +198,10 @@ $("body").keyup(function(event) {
 function showAnswerFeedback(answer, obj) {
     $('#helper-area').html('');
     if (answer == true) {
-        $('#helper-area').append('<p class="green">correct!</p><strong> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + "</strong>");
+        $('#helper-area').append('<p class="green">correct!</p><strong> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</strong><br><em class="sub-helper">' + obj["HELPER"] + '</em>');
     }
     if ( answer == false ) {
-        $('#helper-area').append('<p class="red">incorrect</p><strong> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + "</strong>");
+        $('#helper-area').append('<p class="red">incorrect</p><strong> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</strong><br><em class="sub-helper">' + obj["HELPER"] + '</em>');
     }
     if( answer == "win") {
         $('#helper-area').append('<p class="green blink">YOU WIN!</p><strong> </strong>');
