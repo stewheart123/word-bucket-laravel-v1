@@ -1,11 +1,18 @@
 @extends('layouts.app')
 @section('games-index')
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            
 <h1>games</h1>
 
 @if (Auth::check())              
 <div class="d-flex justify-content-start">
     <div class="memory-area flex-column">
-        <label>Your Memories</label>
+    <div class="d-flex flex-row">
+        <h2>Your Memories</h2>
+        <div id="unlock" class="locked btn btn-dark btn-sm">unlock</div>
+    </div>
         @foreach ($personal_games as $personal_game)
         <a href="/game/{{$personal_game->GM_ID}}">
             <div class="p-2 m-2 game-container card text-left">
@@ -30,7 +37,7 @@
                     <form action="destroyGame" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type = "hidden" name = "GM_ID" value = "{{$personal_game->GM_ID}}" />
-                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                <button type="submit" class="delete-lesson-button d-none btn btn-outline-danger btn-sm">Delete</button>
                     </form>
             </div>
         </a>
@@ -68,5 +75,10 @@
     @endforeach
 
 </div>
+
+</div>
+    </div>
+</div>
 @endif
+    <script type="text/javascript" src="{{asset('js/unlock-delete-button.js')}}"></script>
 @endsection

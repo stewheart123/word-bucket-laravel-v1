@@ -20,6 +20,7 @@ div#words-to-sort {
 }
 .bucket-labels {
     display: flex;
+    color: #c5bc8e;
 }
 label.bucket-lab {
     width: 33.5%;

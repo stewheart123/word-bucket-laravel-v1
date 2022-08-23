@@ -15,6 +15,10 @@ class CreateGameController extends Controller
     //
     public function index(){
         $personal_games = DB::table('games')->where('GM_AUTHOR_ID','=', Auth::user()->id )->get();
+        // if($personal_games == null) {
+        //     $personal_games = [];
+        // }
+        //dd($personal_games);
 
         $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',8)->get();
 
