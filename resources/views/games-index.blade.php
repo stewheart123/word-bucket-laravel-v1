@@ -10,8 +10,8 @@
 <div class="d-flex justify-content-start">
     <div class="memory-area flex-column">
     <div class="d-flex flex-row">
-        <h2>Your Memories</h2>
-        <div id="unlock" class="locked btn btn-dark btn-sm">unlock</div>
+        <label>Your Memories</label>
+        <div id="unlock" class="locked btn btn-dark btn-sm black-bt ms-5"><p class="m-0">unlock</p></div>
     </div>
         @foreach ($personal_games as $personal_game)
         <a href="/game/{{$personal_game->GM_ID}}">
@@ -57,10 +57,9 @@
         @endforeach
     </div>
 
-    <label>Adversaries' memories</label>
     @foreach($user_adversaries as $adversary)
-    <p>{{$adversary->name}}</p>
     <div class="memory-area flex-column">
+        <p>{{$adversary->name}}</p>
         @foreach($all_public_games as $public_game)
         @if ($public_game->GM_AUTHOR_ID == $adversary->id)
         <a href="/game/{{$public_game->GM_ID}}">

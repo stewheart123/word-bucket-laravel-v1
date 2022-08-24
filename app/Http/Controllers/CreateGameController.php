@@ -20,9 +20,11 @@ class CreateGameController extends Controller
         // }
         //dd($personal_games);
 
-        $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',8)->get();
+        $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',11)->get();
 
-        $all_public_games = DB::table('games')->where('GM_PUBLIC','=', 1)
+        $all_public_games = DB::table('games')
+        ->where('GM_PUBLIC','=', 1)
+        ->where('GM_AUTHOR_ID','!=', 11)
         ->where('GM_AUTHOR_ID','!=', Auth::user()->id)->get();
 
         $current_user_details = DB::table('user_details')
@@ -38,6 +40,7 @@ class CreateGameController extends Controller
             //where is in array
             ->whereIn('users.id' , $adver_json )
             ->where('users.id', '!=', Auth::user()->id)
+            ->where('users.id', '!=', 11)
             ->get();
 
        //dd($user_adversaries);

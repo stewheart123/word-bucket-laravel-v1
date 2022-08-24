@@ -210,3 +210,8 @@ textarea#gmc-text-area {
 .game-container em {
  text-align: right;
 }
+.memory-area.flex-column {
+    min-width: 180px;
+    border: 1px dotted;
+    width: fit-content;
+}
