@@ -39,6 +39,7 @@ $('#ready-button').click(function() {
     });
 
     updateJSON();
+    $('#submit').removeClass('d-none');
 });
 
 function RemoveRow(obj) {
@@ -48,8 +49,8 @@ function RemoveRow(obj) {
 }
 
 function newInputRow() {
-    var inputRowMarkupString = ' <div class="d-flex input-flex"><div class="field-inner"><label> native word</label><input type="text" value="" class="native-input"></div><span>=</span><div class="field-inner"><label> foreign word</label><input type="text" value="" class="foreign-input"></div><div class="field-inner"><label>helper</label><input type="text" value="" class="helper-input"></div><div id="remove-word-button" class="remove-word-button btn btn-warning btn-lg">Remove Word</div></div>';
-    $('.game-maker-wizard').append(inputRowMarkupString);
+    var inputRowMarkupString = ' <div class="d-flex input-flex"><div class="field-inner"><label> native word</label><input type="text" value="" class="native-input"></div><span class="mt-4">=</span><div class="field-inner"><label> foreign word</label><input type="text" value="" class="foreign-input"></div><div class="field-inner"><label>helper</label><input type="text" value="" class="helper-input"></div><div id="remove-word-button" class="remove-word-button btn btn-warning btn-lg">Remove Word</div></div>';
+    $('.d-flex.input-flex').last().after(inputRowMarkupString);
 
     
     $('.remove-word-button').click(function() {
@@ -74,12 +75,13 @@ function buildJSONword(nativeInput, foreignInput, helperInput, last) {
      helperText + endBracket;
      arrayOfJson.push(buildJSON)
      //console.log(buildJSON);
-     updateJSON();
+    // updateJSON();
      
 }
 
 function updateJSON() {
     $('#gmc-text-area').empty();
+    
     var buildStringFinal = '';
      buildStringFinal = '{ "WORDS" : [';
     $(arrayOfJson).each(function(index, value){
@@ -89,4 +91,5 @@ function updateJSON() {
     //buildString = buildString.trim(0, -1);
     console.log(buildStringFinal);
     $('#gmc-text-area').val(buildStringFinal);
+    arrayOfJson.length = 0;
 }

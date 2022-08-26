@@ -45,7 +45,7 @@
     </div>
     <!--  when clicked, shows conainer with data including list of games? bio, profile pic, nationality?-->
     <div class="memory-area flex-column">
-        <label>Wordbucket Offical</label>
+        <p>Wordbucket Offical</p>
 
         @foreach ($wordbucket_official_games as $wordbucket_game)
         <a href="/game/{{$wordbucket_game->GM_ID}}">
