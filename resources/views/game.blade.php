@@ -1,14 +1,11 @@
 @extends('layouts.app')
 
 @section('game')
-<section class="game">
-    @guest
-        <a class="btn btn-primary btn-sm" href="/games-index-demo">back</a>
-    @endguest
-    
-    @if (Auth::check())              
-        <a class="btn btn-primary btn-sm" href="/games-index">back</a>                   
-    @endif
+<section class="game ">
+    <div class="container bg-dark bg-gradient text-white my-5 py-5">
+        <div class="col-12">
+
+
     <div id="data-holder">{{$returned_game_data}}</div>
     
 <div class="bucket-labels">
@@ -45,4 +42,14 @@
 
 </section>
 <script type="text/javascript" src="{{asset('js/game.js')}}"></script>
+
+</div>
+    </div>
+    @guest
+        <a class="btn btn-primary btn-sm" href="/games-index-demo">back</a>
+    @endguest
+    
+    @if (Auth::check())              
+        <a class="btn btn-primary btn-sm" href="/games-index">back</a>                   
+    @endif
 @endsection

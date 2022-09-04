@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
 
-    <div class="memory-area flex-row justify-content-center">
+    <div class="memory-area flex-row justify-content-center text-white">
         <h2 class="text-center">Adversaries</h2>
         <p>Add an adversary to gain access to their shared memories.</p>
         <p><em>An Adversary is just a clever way of saying 'internet friend'</em></p>
@@ -15,7 +15,7 @@
         <div class="row">
         @foreach ($all_public_users as $public_user)
 
-        <div class=" col-3 card p-2 m-1
+        <div class=" col-3 card p-2 m-1 bg-dark bg-gradient text-white
         @foreach($decoded_adversaries as $decoded)
         @if($public_user->id == $decoded) 
         d-none

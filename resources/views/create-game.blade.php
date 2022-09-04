@@ -4,8 +4,8 @@
 <h1>create games</h1>
 
 <section class="game-maker-wizard">
-    <div class="container">
-        <div class="row">
+    <div class="container bg-dark bg-gradient text-white mb-3">
+        <div class="row ">
             <div>
                 <div class="d-flex input-flex">
                     <div class="field-inner">
@@ -33,8 +33,8 @@
         </div>
     </div><!-- container -->
 </section>
-<div class="container">
-    <div class="row">
+<div class="container bg-dark bg-gradient text-white">
+    <div class="row ">
 <form action="/create-game" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
           <div class="form-group row">

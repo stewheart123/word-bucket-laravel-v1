@@ -9,13 +9,13 @@
 @if (Auth::check())              
 <div class="d-flex justify-content-start">
     <div class="memory-area flex-column">
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row text-white">
         <label>Your Memories</label>
         <div id="unlock" class="locked btn btn-dark btn-sm black-bt ms-5"><p class="m-0">unlock</p></div>
     </div>
         @foreach ($personal_games as $personal_game)
         <a href="/game/{{$personal_game->GM_ID}}">
-            <div class="p-2 m-2 game-container card text-left">
+            <div class="p-2 m-2 game-container card text-left bg-success bg-gradient text-white">
                 <strong><p>{{$personal_game->GM_TITLE}}</p></strong>
                 <p>{{$personal_game->GM_DESCRIPTION}}</p>
                 @if($personal_game->GM_PUBLIC == 1) 
@@ -44,12 +44,12 @@
         @endforeach
     </div>
     <!--  when clicked, shows conainer with data including list of games? bio, profile pic, nationality?-->
-    <div class="memory-area flex-column">
+    <div class="memory-area flex-column text-white">
         <p>Wordbucket Offical</p>
 
         @foreach ($wordbucket_official_games as $wordbucket_game)
         <a href="/game/{{$wordbucket_game->GM_ID}}">
-            <div class="p-2 m-2 game-container card text-left">
+            <div class="p-2 m-2 game-container card text-left bg-dark bg-gradient text-white">
                 <strong><p>{{$wordbucket_game->GM_TITLE}}</p></strong>
                 <p>{{$wordbucket_game->GM_DESCRIPTION}}</p>
             </div>
@@ -58,7 +58,7 @@
     </div>
 
     @foreach($user_adversaries as $adversary)
-    <div class="memory-area flex-column">
+    <div class="memory-area flex-column text-white">
         <p>{{$adversary->name}}</p>
         @foreach($all_public_games as $public_game)
         @if ($public_game->GM_AUTHOR_ID == $adversary->id)

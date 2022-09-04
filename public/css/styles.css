@@ -1,8 +1,7 @@
 .game {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: system-ui;
     font-weight: 500;
-    background-color: rgb(61, 58, 58);
     height: 100%;
 }
 .game p {
@@ -105,7 +104,7 @@ label#current-word {
 }
 /* input[type="text"] */
  #input-field{
-    font-size: 2.8rem;
+    font-size: 2rem;
     text-align: left;
     font-weight: 600;
     height: 4rem;
@@ -115,7 +114,7 @@ label#current-word {
     margin: 1rem  auto 0 1rem;
 }
 .game strong {
-    font-size: 2.7rem;
+    font-size: 2rem;
 }
 .special-button {
     background-color: #ffd60d;
@@ -212,6 +211,10 @@ textarea#gmc-text-area {
 }
 .memory-area.flex-column {
     min-width: 180px;
-    border: 1px dotted;
     width: fit-content;
+}
+.custom-background {
+    background-image: url('/images/wordbucket-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }

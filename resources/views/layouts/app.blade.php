@@ -18,9 +18,9 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="custom-background">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-warning" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }} ~ <em class="text-secondary me-3"> memorise anything</em>
@@ -33,13 +33,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                     @guest
-                        <a class="navbar-brand" href="/games-index-demo">Demo</a>
+                        <a class="navbar-brand text-white" href="/games-index-demo">Demo</a>
                     @endguest
                         <!-- <a class="navbar-brand" href="/language-select">Language</a> -->
                         @if (Auth::check())              
-                        <a class="navbar-brand" href="/games-index">Learn</a>
-                        <a class="navbar-brand" href="/adversaries">Adversaries</a>
-                        <a class="navbar-brand" href="/create">Create</a>
+                        <a class="navbar-brand text-white" href="/games-index">Learn</a>
+                        <a class="navbar-brand text-white" href="/adversaries">Adversaries</a>
+                        <a class="navbar-brand text-white" href="/create">Create</a>
                         @endif
                     </ul>
 
@@ -50,17 +50,17 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
