@@ -76,7 +76,7 @@
       @endif
       <div class="d-flex pb-4">
           <div id="ready-button" class="btn btn-primary btn-lg col-2 mx-4">Ready</div>
-          <button id="submit" type="submit" class="btn btn-warning btn-lg mx-2 d-block d-none">Submit</button>
+          <button id="submit" type="submit" class="btn btn-success btn-lg mx-2 d-block d-none">Submit</button>
       </div>
     </form>
     </div><!-- row -->

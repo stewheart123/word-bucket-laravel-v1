@@ -49,7 +49,7 @@ function RemoveRow(obj) {
 }
 
 function newInputRow() {
-    var inputRowMarkupString = ' <div class="d-flex input-flex"><div class="field-inner"><label> native word</label><input type="text" value="" class="native-input"></div><span class="mt-4">=</span><div class="field-inner"><label> foreign word</label><input type="text" value="" class="foreign-input"></div><div class="field-inner"><label>helper</label><input type="text" value="" class="helper-input"></div><div id="remove-word-button" class="remove-word-button btn btn-warning btn-lg">Remove Word</div></div>';
+    var inputRowMarkupString = ' <div class="d-flex input-flex"><div class="field-inner"><label> native word</label><input type="text" value="" class="native-input"></div><span class="mt-4">=</span><div class="field-inner"><label> foreign word</label><input type="text" value="" class="foreign-input"></div><div class="field-inner"><label>helper</label><input type="text" value="" class="helper-input"></div><div id="remove-word-button" class="remove-word-button btn btn-danger mt-4 btn-sm">Remove Word</div></div>';
     $('.d-flex.input-flex').last().after(inputRowMarkupString);
 
     
