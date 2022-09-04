@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('game')
-<section class="game ">
+<section class="game">
     <div class="container bg-dark bg-gradient text-white my-5 py-5">
         <div class="col-12">
 
@@ -37,7 +37,10 @@
     <div id="check-word-button" class="special-button">&#9166;</div>
 
 </div>
-<div class="helper-area" id="helper-area">Welcome to WordBucket! <br>Type the word in the language matching the flag.</div>
+<div class="helper-area" id="helper-area">Welcome to WordBucket! <br>Type the word in the language matching the flag.
+<br> Get the words correct in both native and foreign language to progress the game.
+<br>
+Complete the game when you can flawlessly type each word correctly from the green bucket.</div>
 
 
 </section>

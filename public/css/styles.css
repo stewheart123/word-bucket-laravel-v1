@@ -140,7 +140,7 @@ p {
 .helper-area {
     border: 2px solid grey;
     background-color: #c5bc8e;
-    width: 49%;
+    /* width: 49%; */
     color: #16120a;
     border-radius: 0.7rem;
     font-size: 1.5rem;

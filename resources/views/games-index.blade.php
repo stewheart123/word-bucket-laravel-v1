@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             
-<h1>games</h1>
+<h1>select a category to learn</h1>
 
 @if (Auth::check())              
 <div class="d-flex justify-content-start">

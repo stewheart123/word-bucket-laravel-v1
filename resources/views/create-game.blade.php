@@ -1,10 +1,10 @@
 
 @extends('layouts.app')
 @section('create-game')
-<h1>create games</h1>
+<h1>create a game</h1>
 
 <section class="game-maker-wizard">
-    <div class="container bg-dark bg-gradient text-white mb-3">
+    <div class="container bg-dark bg-gradient text-white mb-3 pb-2">
         <div class="row ">
             <div>
                 <div class="d-flex input-flex">
@@ -21,24 +21,18 @@
                         <label>helper</label>
                         <input type="text" value="" class="helper-input">
                     </div>
-                    <div class="remove-word-button btn btn-secondary btn-lg mt-4">Remove Word</div>
+                    <!-- <div class="remove-word-button btn btn-secondary btn-lg mt-4">Remove Word</div> -->
                 </div>
                 <!-- can update by bringing in language dropdowns -->
-                
-            </div>
-        </div><!-- row -->
-        <div class="row">
+                </div>
             <div id="add-word-button" class="btn btn-primary btn-lg col-2 mx-4">Add Word</div>
             <!-- can update by bringing in language dropdowns -->
         </div>
-    </div><!-- container -->
-</section>
-<div class="container bg-dark bg-gradient text-white">
-    <div class="row ">
+    <div class="row mb-5">
 <form action="/create-game" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
           <div class="form-group row">
-              <div class="col-lg-12 p-3 m-2 mt-5">
+              <div class="col-lg-12 p-3 m-2 mt-2">
 
                 <label class="h3">select native language</label>
               <select id='native-select' class="ms-3" name="GM_NATIVE_SHORTHAND">
@@ -80,9 +74,9 @@
             </ul>
         </div>
       @endif
-      <div class="d-flex">
+      <div class="d-flex pb-4">
           <div id="ready-button" class="btn btn-primary btn-lg col-2 mx-4">Ready</div>
-          <button id="submit" type="submit" class="btn btn-warning btn-lg m-2 d-block my-5 d-none">Submit</button>
+          <button id="submit" type="submit" class="btn btn-warning btn-lg mx-2 d-block d-none">Submit</button>
       </div>
     </form>
     </div><!-- row -->
