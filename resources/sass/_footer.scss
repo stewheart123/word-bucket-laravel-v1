@@ -1,0 +1,20 @@
+footer {
+    background-color: $primary-blue;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    
+    a, a:hover {
+        font-size: 21px;
+        font-weight: 400;
+        color : $pale;
+    }
+    .developer, 
+    .developer:hover {
+        font-size: 16px;
+        color : $pale;
+    }
+    .footer-container {
+        height: 126px;
+        align-items: end;
+    }
+}

@@ -18,16 +18,30 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="custom-background">
+<body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
+        <nav class="header d-flex align-items-center">
             <div class="container">
-                <a class="navbar-brand text-warning" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }} ~ <em class="text-secondary me-3"> memorise anything</em>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <div class="row">
+                    <div class="col-3">
+                        <a class="header__site-title" href="{{ url('/') }}">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>
+                    </div>
+                    <div class="col-1 align-items-center d-flex">
+                        <a href="/" class="header__menu">Demo</a>
+                    </div>
+                    <div class="col-1 offset-lg-5 align-items-center d-flex">
+                        <a href="/" class="header__menu">Login</a>
+                    </div>
+                    <div class="col-1 align-items-center d-flex">
+                        <a href="/" class="header__menu">Register</a>
+                    </div>
+                </div>
+                
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -91,5 +105,15 @@
             @yield('create-game')
         </main>
     </div>
+    <footer>
+        <div class="container">
+            <div class="footer-container row d-flex justify-content-between">
+                <div class="col-lg-1 mb-3"><a href="/" class="mb-3">Contact</a></div>
+                <div class="col-4 d-flex justify-content-end">
+                    <a href="" target="_blank" class="developer mb-3">created by Stewart Tuckwood @ 2022</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
