@@ -1,7 +1,9 @@
 footer {
+    position: absolute;
+    bottom: -22rem;
     background-color: $primary-blue;
     width: 100%;
-    font-family: 'Quicksand', sans-serif;
+    font-family: $quicksand;
     
     a, a:hover {
         font-size: 21px;
@@ -16,5 +18,8 @@ footer {
     .footer-container {
         height: 126px;
         align-items: end;
+        @include respond(xxl) {
+            height: 86px;
+        }
     }
 }

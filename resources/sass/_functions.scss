@@ -1,0 +1,32 @@
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints)==null, "", "-#{$name}");
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+// function to make sure the unit type (px, rem) is removed from line-height
+@function get-value($n) {
+    @return $n / ($n * 0 + 1);
+}
+
+@function get-line-height($font-size, $line-height) {
+   @return get-value($line-height / $font-size);
+}

@@ -1,0 +1,59 @@
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == xxl {
+        @media only screen and (max-width: 1399px) { @content };
+    }
+
+    @if $breakpoint == xl {
+        @media only screen and (max-width: 1199px) { @content };
+    }
+  
+    @if $breakpoint == lg {
+        @media only screen and (max-width: 991px) { @content };
+    }
+
+    @if $breakpoint == md {
+        @media only screen and (max-width: 767px) { @content };
+    }
+
+    @if $breakpoint == sm {
+        @media only screen and (max-width: 575px) { @content };
+    }
+}
+
+// IE hack
+@mixin explorer {
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+        @content;
+    }
+}
+
+// Edge hack
+@mixin edge {
+    @supports (-ms-ime-align:auto) {
+        @content;
+    }
+}
+
+// When using a pseudo element these three properties will be always used
+@mixin pseudo($content: '', $position: absolute, $display: block) {
+    content: $content;
+    display: $display;
+    position: $position;
+}
+
+// Mixin for placeholders styling
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+// Sets typography styles
+@mixin typography($font-size, $line-height, $font-family:null) {
+    font-size: $font-size;
+    line-height: get-line-height($font-size, $line-height);
+    @if ($font-family) { font-family: $font-family; }
+}

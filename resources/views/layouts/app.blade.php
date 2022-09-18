@@ -11,8 +11,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('/css/styles.css') }}">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="{{ url('/css/styles.css') }}"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Scripts -->
@@ -21,29 +21,30 @@
 <body>
     <div id="app">
         <nav class="header d-flex align-items-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-3">
-                        <a class="header__site-title" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                    </div>
-                    <div class="col-1 align-items-center d-flex">
-                        <a href="/" class="header__menu">Demo</a>
-                    </div>
-                    <div class="col-1 offset-lg-5 align-items-center d-flex">
+            <div class="container d-flex justify-content-between">
+                <div class="d-flex align-items-start flex-column flex-md-row w-50">
+                    <a class="header__site-title me-5" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                    <a href="/" class="header__menu">Demo</a>
+                </div>
+                <div class="d-flex">
+                    <div class="ms-5">
                         <a href="/" class="header__menu">Login</a>
                     </div>
-                    <div class="col-1 align-items-center d-flex">
+                    <div class="ms-5">
                         <a href="/" class="header__menu">Register</a>
                     </div>
                 </div>
+            </div>
+        </nav>                    
+                
                 
                 <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-none collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                     @guest
@@ -92,9 +93,9 @@
                             </li>
                         @endguest
                     </ul>
-                </div>
-            </div>
+                
         </nav>
+</div>
 
         <main>
             @yield('content')
@@ -107,9 +108,9 @@
     </div>
     <footer>
         <div class="container">
-            <div class="footer-container row d-flex justify-content-between">
-                <div class="col-lg-1 mb-3"><a href="/" class="mb-3">Contact</a></div>
-                <div class="col-4 d-flex justify-content-end">
+            <div class="footer-container d-flex justify-content-between flex-column flex-md-row">
+                <div class="mb-3"><a href="/" class="mb-3">Contact</a></div>
+                <div class="d-flex">
                     <a href="" target="_blank" class="developer mb-3">created by Stewart Tuckwood @ 2022</a>
                 </div>
             </div>

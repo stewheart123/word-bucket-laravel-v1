@@ -1,20 +1,25 @@
 .header {
     height: 90px;
     background-color: $primary-blue;
+    @include respond(xxl) {
+        height: 50px;
+    }
+    @include respond(md) {
+        height: 80px;
+    }
 
     &__site-title, 
     &__site-title:hover {
-        font-family: 'Quicksand', sans-serif;
-        font-weight: 500;
         color: $primary-red;
-        font-size : 28px;
+        @include typography(28px, 28px, $quicksand );
     }
 
     &__menu,
     &__menu:hover
-     {
+    {
         color : $pale;
         font-size: 21px;
         font-weight: 400;
     }
+
 }

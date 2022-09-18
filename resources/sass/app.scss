@@ -1,13 +1,14 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-// font-family: 'Quicksand', sans-serif;
+@import 'functions';
+@import 'mixins';
 // Variables
 @import 'variables';
-
+@import 'base';
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+//custom
 @import 'header';
 @import 'footer';
-@import 'base';
+@import 'hero-home';

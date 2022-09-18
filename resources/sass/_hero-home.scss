@@ -1,0 +1,86 @@
+.hero-home{
+    &__row {
+        @include respond(md) {
+            flex-direction: column-reverse;
+        }
+    }
+    &__text {
+        width: 50%;
+        max-width: 52rem;
+        @include respond(lg) {
+            width: 100%;
+            max-width: 48rem;
+        }
+        @include respond(md) {
+            text-align: center;
+            max-width: unset;
+        }
+    }
+    &__circle-image {
+        width: 100%;
+        max-width: 40rem;
+        border-radius: 100%;
+        padding-bottom: 40rem;
+        border: 3px solid $primary-blue;
+        float: right;
+        margin-top: 3rem;
+        margin-right: 3rem;
+        box-shadow: -1rem 2rem 1rem #0000002b;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include respond(lg) {
+            float: unset;
+            margin-right: 0;
+            padding-bottom: 100%;
+        }
+        @include respond(md) {
+            margin-top: .5rem;
+        }
+    }
+    &__image-container {
+        width: 50rem;
+        margin-left: 3vw;
+
+        @include respond(lg) {
+            width: 19rem;
+            margin-left: 4vw;
+        }
+        @include respond(md) {
+            width: 21rem;
+            margin-left: 0;
+            margin: 0 auto;
+        }
+    }
+
+    &__underline {
+        width: 100%;
+        height: 2px;
+        padding-top: 4rem;
+        border-bottom: 3px solid $primary-red;
+        position: relative;
+        box-sizing: border-box;
+        @include respond(md) {
+            margin-top: 4rem;
+        }
+    }
+    &__icon {
+        position: absolute;
+        width: 10rem;
+        height: 10rem;
+        background-color: $pale;
+        left: calc(50% - 5rem);
+        top: -4rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include respond(lg) {
+            right: 8rem;
+            left: unset;
+        }
+        @include respond(md) {
+            left: calc(50% - 5rem);
+            right: unset;
+        }
+    }
+}
+

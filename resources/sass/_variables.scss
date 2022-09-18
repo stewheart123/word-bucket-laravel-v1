@@ -2,10 +2,11 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$quicksand: 'Quicksand', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+//* Colors
 $primary-blue : #0F58AE;
 $light-blue : #11BAFE;
 $primary-red : #E9574E;
@@ -18,3 +19,130 @@ $paper-line-blue: #64A8C5;
 $green : #73E996;
 $exit-green : #0AA664;
 $grey : #7D7979;
+
+//* Spaces
+$space: 1rem;
+$spaces: (0: 0,
+    1: ($space * 1),
+    2: ($space * 2),
+    3: ($space * 3),
+    4: ($space * 4),
+    5: ($space * 5),
+    6: ($space * 6),
+    7: ($space * 7),
+    8: ($space * 8),
+    9: ($space * 9),
+    10: ($space * 10),
+    15: ($space * 1.5),
+    25: ($space * 2.5),
+    35: ($space * 3.5),
+    45: ($space * 4.5));
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 575px,
+    md: 767px,
+    lg: 991px,
+    xl: 1199px,
+    xxl: 1399px,
+);
+
+//* Font Weights
+//$light: 300;
+$regular : 400;
+$medium : 500;
+$semibold : 600;
+$bold : 700;
+
+//* Headings
+
+
+// %h1-article {
+//     @include typography(4.2rem, 5.2rem, $jakarta);
+//     font-weight: $bold;
+
+//     @include respond(xl) {
+//         @include typography(2.8rem, 4.42rem);
+//     }
+// }
+
+// %h2 {
+//     @include typography(3.7rem, 4.48rem, $jakarta);
+//     font-weight: $bold;
+
+//     @include respond(xl) {
+//         @include typography(3rem, 4.2rem);
+//     }
+// }
+
+// %h3 {
+//     @include typography(3.1rem, 4.2rem, $jakarta);
+//     font-weight: $bold;
+
+//     @include respond(xl) {
+//         @include typography(2.6rem, 3.9rem);
+//     }
+// }
+
+// %h4 {
+//     @include typography(2.2rem, 3.2rem, $jakarta);
+//     font-weight: $bold;
+
+//     @include respond(xl) {
+//         @include typography(2rem, 3rem);
+//     }
+// }
+
+// %h5 {
+//     @include typography(2.2rem, 3.1rem, $jakarta);
+//     font-weight: $medium;
+
+//     @include respond(xl) {
+//         @include typography(2rem, 2.88rem);
+//     }
+// }
+
+// %h5-tall {
+//     @include typography(2.2rem, 3.3rem, $jakarta);
+//     font-weight: $medium;
+
+//     @include respond(xl) {
+//         @include typography(2rem, 2.88rem);
+//     }
+// }
+
+// %h5-light {
+//     @include typography(2rem, 3.3rem, $jakarta);
+//     font-weight: $semibold;
+
+//     @include respond(xl) {
+//         @include typography(2.2rem, 3rem);
+//     }
+// }
+
+// %body-os {
+//     @include typography(1.9rem, 2.8rem, $jakarta);
+//     font-weight: $medium;
+//     @include respond(xl) {
+//         @include typography(1.6rem, 2.5rem);
+//     }
+// }
+
+// %body-large {
+//     @include typography(1.8rem, 2.88rem, $jakarta);
+//     font-weight: $regular;
+
+//     @include respond(lg) {
+//         @include typography(1.6rem, 2.5rem);
+//     }
+// }
+
+// %body {
+//     @include typography(1.6rem, 2.5rem, $jakarta);
+//     font-weight: $regular;
+// }
+
+// %body-small {
+//     @include typography(1.4rem, 2.3rem, $jakarta);
+//     font-weight: $regular;
+// }
