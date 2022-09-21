@@ -1,0 +1,111 @@
+.how-it-works {
+    margin-top: 7rem;
+    h3 {
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+        border-bottom: 1px solid;        
+    }
+
+    &__icon-container {
+        width: 8rem;
+        height: 8rem;
+        margin: 3rem auto 1rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        @include respond(xl) {    
+            position: absolute;
+            margin: 0;
+            top: 27%;
+        }
+        @include respond(md) {
+            display: none;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        padding-bottom: 100%;
+        background-position: center;
+        background-size: contain;
+        border: 2px solid;
+        background-repeat: no-repeat;
+        @include respond(xl) {
+            padding-bottom: 0;
+            height: 100%;
+            max-width: 20rem;
+            background-size: cover;
+            margin-left: 8rem;
+        }
+        @include respond(md){
+            max-width: 10rem;
+            margin-left: 0;
+            width: 43rem;
+        }
+    }
+    &__row {
+        max-width: 113rem;
+        margin: auto;
+        flex-wrap: nowrap;
+        @include respond(xl) {
+            flex-wrap: wrap;
+            margin: 5rem auto 0;
+        }
+    }
+    &__three-container:first-of-type .how-it-works__image {
+        @include respond(md) {
+            background-position: left;
+        }
+    }
+
+    &__three-container {
+        position: relative;
+        max-width: 30rem;
+        margin: 0 auto;
+        flex-direction: column;
+        @include respond(xl) {
+            flex-direction: row;
+            margin: 1.5rem 0;
+            max-width: unset;
+            max-height: 40rem;
+        }
+    }
+
+    h4 {
+        @include respond(xl) {
+            position: absolute;
+            top: 0;
+            margin: 0;
+            left: 31rem;
+            text-align: left;
+            top: 1rem;
+        }
+        @include respond(md) {
+         font-size: 2rem;
+         left: 13rem;
+         top: 1rem;
+        }
+    }
+    .how-it-works__image-text-flex {
+        flex-direction: column;
+        display: flex;
+        @include respond(xl) {
+            flex-direction: row;
+        }
+    }
+    .how-it-works__text-container {
+        @include respond(xl) {
+            padding: 1.5rem 2rem;
+            max-width: 60rem;
+            padding: 2.5rem 2rem;
+        }  
+        @include respond(md) {
+            padding: 2.5rem 2rem;
+        }
+    }
+    .button {
+        margin-top: 9rem;
+        min-width: 28.4rem;
+    }
+}

@@ -8,6 +8,7 @@ a {
 body {
     background-color: $pale;
     margin: 0;
+    position: relative;
 }
 * {
     font-family: $quicksand;
@@ -25,7 +26,31 @@ h1 {
         @include typography(2.4rem, 2.4rem);
     }
 }
-.h4 {
+h2, .h2 {
+    @include typography(5rem , 5rem, $quicksand);
+    font-weight: 300;
+
+    @include respond(xl) {
+        @include typography(3rem, 3rem, $quicksand);
+    }
+
+    // @include respond(md) {
+    //     @include typography(2.4rem, 2.4rem);
+    // }
+}
+h3, .h3 {
+    @include typography(3.6rem , 3.6rem, $quicksand);
+    font-weight: 500;
+
+    @include respond(xl) {
+        @include typography(3.6rem, 3.6rem , $quicksand);
+    }
+
+    // @include respond(md) {
+    //     @include typography(2.4rem, 2.4rem);
+    // }
+}
+h4, .h4 {
     @include typography(2.8rem , 2.8rem, $quicksand);
     font-weight: 600;
     @include respond(xxl) {
@@ -42,6 +67,9 @@ h1 {
     }
     font-weight: 400;
 }
+p {
+    @include typography(1.6rem, 2.4rem, $quicksand);
+}
 
 ul {
     padding-left: 2rem;
@@ -49,4 +77,15 @@ ul {
 li {
     margin-bottom: 1rem;
     text-align: left;
+}
+
+.button {
+    padding: .8rem 1.6rem;
+    margin: auto;
+    width: fit-content;
+    font-size: 2rem;
+}
+.button--orange {
+    background-color: $primary-red;
+    color: $paper;
 }

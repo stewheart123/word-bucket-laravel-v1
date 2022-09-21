@@ -26,16 +26,44 @@
                     <a class="header__site-title me-5" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                    <a href="/" class="header__menu">Demo</a>
+                    @if (Auth::check())              
+                        <a class="header__menu ms-5" href="/games-index">Learn</a>
+                        <a class="header__menu ms-5" href="/adversaries">Adversaries</a>
+                        <a class="header__menu ms-5" href="/create">Create</a>
+                        @endif
+                        @guest
+                            <a href="/games-index-demo" class="header__menu">Demo</a>
+                        @endguest
                 </div>
+                @guest
                 <div class="d-flex">
+                            @if (Route::has('login'))
+                            <div class="ms-5">
+                                <a href="{{ route('login') }}" class="header__menu">{{ __('Login') }}</a>
+                            </div>
+                                
+                            @endif
+
+                            @if (Route::has('register'))
+                            <div class="ms-5">
+                                <a href="{{ route('register') }}" class="header__menu">{{ __('Register') }}</a>
+                            </div>
+                            @endif
+                        </div>
+                    @else 
                     <div class="ms-5">
-                        <a href="/" class="header__menu">Login</a>
+                    <a class="header__menu" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                    </a>
                     </div>
-                    <div class="ms-5">
-                        <a href="/" class="header__menu">Register</a>
-                    </div>
-                </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                @endguest
+                    
+
             </div>
         </nav>                    
                 
@@ -104,6 +132,7 @@
             @yield('games-index')
             @yield('games-index-demo')
             @yield('create-game')
+            @yield('lexicon-index')
         </main>
     </div>
     <footer>

@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('/play', function () {
     return view('game');
 });
-
+Route::get('/lexicon-index', [App\Http\Controllers\CreateGameController::class, 'lexiconIndex']);
 Route::get('/game/{game_data}',[App\Http\Controllers\GameController::class,'LoadGame']);
 Route::get('/adversaries', [App\Http\Controllers\UserDetailController::class,'ShowAllPublicUsers']);
 Route::post('/create-adversary', [App\Http\Controllers\UserDetailController::class, 'store']);

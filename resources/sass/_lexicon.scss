@@ -1,0 +1,100 @@
+.lexicon {
+    h1 {
+        border-bottom: 1px solid;
+        width: fit-content;
+        margin: 3rem auto 2.5rem;
+    }
+    .h4 {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    .hero-home__icon {
+        top: 0rem;
+    }
+    .hero-home__underline {
+        margin-top: 3rem;
+    }
+    &__level-display {
+        margin-top: 10rem;
+    }
+    &__level-button {
+        font-size: 2rem;
+        padding: .8rem 1.6rem;
+        border: 1px solid;
+        margin: 1rem 2rem;
+        width: 15%;
+        text-align: center;
+        position: relative;
+        font-weight: 500;
+        background-color: lightgray;
+    }
+    &__level-button-container {
+        justify-content: end;
+    }
+    &__level-progress-bar {
+        width: 80%;
+        background-color: gray;
+        height: 1rem;
+        margin: 3rem 8% 1rem 9%;
+        position: relative;
+    }
+    &__level-progress-bar-inner {
+        width: 8px;
+        background-color: rgb(76, 218, 130);
+        height: 1rem;
+        margin: 3rem 8% 1rem 9%;
+        position: absolute;
+        z-index: 1;
+    }
+    &__milestone-container {
+        width: 80%;
+        height: 1rem;
+        margin: 3rem 8% 1rem 9%;
+        position: relative;
+        top: -5.7rem;
+    }
+    &__start-milestone {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgb(76, 218, 130);
+        padding: 0;
+        border-radius: 50%;
+        left: -0.7rem;
+        top: -0.7rem;
+        label {
+            position: absolute;
+            width: fit-content;
+            top: 4rem;
+            text-align: center;
+            width: 10rem;
+            left: -3.3rem;
+            font-size: 1.4rem;
+            color: gray;
+        }
+    }
+    &__milestone-a {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        left: calc(50% - 1.25rem);
+        border-radius: 50%;
+        background-color: gray;
+        top: 7.4rem;
+
+        label {
+            position: absolute;
+            width: fit-content;
+            top: 4rem;
+            text-align: center;
+            width: 10rem;
+            left: -3.3rem;
+            font-size: 1.4rem;
+            color: gray;
+        }
+    }
+}
+.selected {
+    background-color: $light-blue;
+    color: $pale;
+}

@@ -1,7 +1,32 @@
 
 @extends('layouts.app')
 @section('create-game')
-<h1>create a game</h1>
+<section class="hero-home">
+    <div class="container">
+        <div class="hero-home__row d-flex">
+            <div class="hero-home__text">
+                <h1>Create your own curriculum</h1>
+                <h2 class="h4">Input words you want to learn</h2>
+                <ul>
+                    <li class="h5">Set the native and foreign languages</li>
+                    <li class="h5">Use the repeater to add as many words as you like <br>-more than 10 might be a bit too much...</li>
+                    <li class="h5">Add helper text for any additional help or information information to give context to the words.</li>
+                    <li class="h5">Private will make lists only available to you.</li>
+                    <li class="h5">Public lists will be visible to anyone who follows you.</li>
+                </ul>
+            </div>
+            <div class="hero-home__image-container">
+                <div class="hero-home__circle-image" style="background-image:url('images/create-circle.jpg');"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hero-home__underline">
+                <div class="hero-home__icon" style="background-image:url('images/anvil.png');"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="game-maker-wizard">
     <div class="container bg-dark bg-gradient text-white mb-3 pb-2">
