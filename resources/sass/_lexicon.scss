@@ -27,9 +27,20 @@
         position: relative;
         font-weight: 500;
         background-color: lightgray;
+        @include respond(xl) {
+            font-size: 1.6rem;
+        }
+        @include respond(lg) {
+            margin: 1rem 1rem;
+            width: 40%;
+        }
     }
     &__level-button-container {
         justify-content: end;
+        @include respond(lg) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
     &__level-progress-bar {
         width: 80%;
@@ -37,6 +48,9 @@
         height: 1rem;
         margin: 3rem 8% 1rem 9%;
         position: relative;
+        @include respond(lg) {
+            display: none;
+        }
     }
     &__level-progress-bar-inner {
         width: 8px;
@@ -45,6 +59,10 @@
         margin: 3rem 8% 1rem 9%;
         position: absolute;
         z-index: 1;
+        @include respond(lg) {
+            display: none;
+        }
+
     }
     &__milestone-container {
         width: 80%;
@@ -62,6 +80,9 @@
         border-radius: 50%;
         left: -0.7rem;
         top: -0.7rem;
+        @include respond(lg) {
+            display: none;
+        }
         label {
             position: absolute;
             width: fit-content;
@@ -71,6 +92,9 @@
             left: -3.3rem;
             font-size: 1.4rem;
             color: gray;
+            @include respond(lg) {
+                display: none;
+            }
         }
     }
     &__milestone-a {
@@ -81,6 +105,12 @@
         border-radius: 50%;
         background-color: gray;
         top: 7.4rem;
+        @include respond(xl) {
+            top: 6.9rem;
+        }
+        @include respond(lg) {
+            display: none;
+        }       
 
         label {
             position: absolute;
@@ -91,7 +121,79 @@
             left: -3.3rem;
             font-size: 1.4rem;
             color: gray;
+            @include respond(lg) {
+                display: none;
+            }
         }
+    }
+   
+    &--relative {
+        position: relative;
+    }
+    &--relative:after {
+        content: "";
+        display: block;
+        width: calc(100% + 4rem);
+        height: 1rem;
+        background-color: $primary-red;
+        bottom: -10px;
+        position: absolute;
+        z-index: 2;
+        left: -0.5rem;
+    }
+    &__word-list-container {
+        position: relative;
+        width: 100%;
+        background-color: grey;
+        padding: 1rem;
+        overflow-y: scroll;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        height: 37rem;
+        align-content: baseline;
+        border: 2px solid $primary-red;
+    }
+
+    &__word-list-tile {
+        background-color: lightgray;
+        text-align: center;
+        display: flex;
+        width: calc(25% - 1rem);
+        height: 11rem;
+        flex-direction: column;
+        margin: 0.5rem;
+        @include respond(lg) {
+            width: calc(33.3% - 1rem);
+        }
+        @include respond(md) {
+            width: calc(50% - 1rem);
+        }
+    }
+    &__category-container {
+        flex-wrap: wrap;
+        align-content: baseline;
+        margin-top: 2rem;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+    }
+    
+    &__category-pill {
+        width: fit-content;
+        border: 2px solid orange;
+        padding: 1rem 1rem;
+        height: 1.6rem;
+        margin: 0.5rem;
+        font-size: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 .selected {

@@ -59,5 +59,31 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="lexicon--relative col-12">
+                    <div class="lexicon__word-list-container">
+                        @for ($i = 0; $i < 25; $i++)
+                        <div class="lexicon__word-list-tile">
+                            <p>title</p>
+                            <span>#tag #tag #tag</span>
+                        </div>
+                        @endfor
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="lexicon__category-container col-12 d-flex">
+                <label>Category :</label> 
+                @for ($i = 0; $i < 25; $i++)
+                        <div class="lexicon__category-pill">
+                            category
+                        </div>
+                        @endfor
+            </div>
+        </div>
+    </div>
+
+
 </section>
 @endsection
