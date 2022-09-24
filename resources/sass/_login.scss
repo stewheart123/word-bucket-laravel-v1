@@ -1,0 +1,90 @@
+.login {
+    margin-top: 4rem;
+    .hero-home__circle-image {
+        margin-top: 0rem;
+    }
+
+    &__card {
+        background-color: white;
+        border: 2px solid $light-blue;
+        padding: 0;
+        max-width: 50%;
+        height: fit-content;    
+    }
+
+    h1 {
+        border-bottom: 2px solid $light-blue;
+        padding: 2rem 0;
+        text-align: center;
+        margin: 0;
+    }
+    &__email, &__password {
+        display: flex;
+        align-content: center;
+        height: 5rem;
+        font-size: 2rem;
+        border-bottom: 2px solid $light-blue;
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+    input#email, input#password {
+        font-size: 2rem;
+        border: 0;
+        width: 60%;
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    button {
+        background-color: $primary-red;
+        font-size: 2rem;
+        padding: .8rem 6.6rem;
+        color: white;
+        border: 0;
+    }
+    &__submit {
+        padding: 2rem 3rem;
+    }
+    &__lower {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3rem 2rem;
+        font-size: 1.8rem;
+    }
+    .form-check {
+        display: flex;
+        color: $light-blue;
+    }
+    .form-check-label {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        font-family: $pangolin;
+        letter-spacing: 2px;
+    }
+    input#remember {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+    }
+    input#remember:before {
+        content: "";
+        width: 2.7rem;
+        height: 2.7rem;
+        position: absolute;
+        display: block;
+        border: 3px $light-blue;
+        visibility: visible;
+    }
+    &__recover {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: $light-blue;
+        text-decoration: underline !important;
+        font-family: $pangolin;
+        letter-spacing: 2px;
+    }
+}

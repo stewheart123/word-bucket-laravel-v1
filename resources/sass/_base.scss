@@ -14,7 +14,7 @@ body {
     font-family: $quicksand;
 }
 
-h1 {
+h1, .h1 {
     @include typography(4.2rem , 5.2rem, $quicksand);
     font-weight: 300;
 
@@ -66,6 +66,27 @@ h4, .h4 {
         @include typography(1.6rem, 2.2rem, $quicksand);
     }
     font-weight: 400;
+}
+.chalk-1 {
+    @include typography(4.8rem, 4.8rem, $pangolin);
+    font-weight: 100;
+    letter-spacing: 1.8px;
+    
+}
+.chalk-2 {
+    @include typography(3.4rem, 3.4rem, $pangolin);
+    font-weight: 100;
+    letter-spacing: 1.8px;
+}
+.chalk-3 {
+    @include typography(2.8rem, 2.8rem, $pangolin);
+    font-weight: 100;
+    letter-spacing: 1.8px;
+}
+.chalk-4 {
+    @include typography(2.2rem, 3rem, $pangolin);
+    font-weight: 100;
+    letter-spacing: 1.8px;
 }
 p {
     @include typography(1.6rem, 2.4rem, $quicksand);

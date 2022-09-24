@@ -26,6 +26,43 @@
         </div>
     </div>
 </section>
+<section class="game-area">
+    <div class="game-area__exit-container">
+        <div class="game-area__exit-button">EXIT</div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="mt-5 m-auto col-11">
+                <div class="game-area__blackboard">
+                    <div class="game-area__word-input-area">
+                        <p class="h1 game-area__target-word">Test</p>
+                        <input class="h1 game-area__word-input" type="text" name="word-input"/>
+                        <p class="result-analysis h1">result</p>
+                        <p class="result-indicator h1">Correct!</p>
+
+                    </div>
+                    <div class="game-area__helper-area">
+                        <h4 class="chalk-3">helper text area</h4>
+                        <p class="chalk-4">This is the helper text area wher yo get extra stuff</p>
+
+                    </div>
+                </div>
+                <div class="game-area__blackboard-shelf"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="game-area__squared-paper">
+                <div class="game-area__progress-bars-container">
+                    <div class="progress-bar">
+                        <div class="progress-bar__foreign"></div>
+                        <div class="progress-bar__native"></div>
+                        <div class="progress-bar__baseline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="game">
     <div class="container bg-dark bg-gradient text-white my-5 py-5">
