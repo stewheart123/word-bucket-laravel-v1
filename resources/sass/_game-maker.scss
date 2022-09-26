@@ -1,0 +1,108 @@
+.game-maker {
+    &__paper-background {
+        background-color: white;
+        background-image: linear-gradient(to bottom, #8dd5ff 1px, transparent 1px);
+        background-size: 1rem 3rem;
+        padding: 3rem 0;
+        margin-top: 6rem;
+        position: relative;
+    }
+    &__paper-background:before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        background-color: #ffa3a3;
+        left: 6vw;
+        top: 0;
+    }
+
+    h3 {
+        text-align: center;
+        width: fit-content;
+        margin: 0.2rem auto 5.5rem;
+        border-bottom: 1px solid #1F2539;
+    }
+
+    &__row {
+        height: 4rem;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 2.3rem;
+    }
+    &__row-textarea {
+        height: 10.4rem;
+        overflow-y: scroll;
+        padding: 0.6rem;
+    }
+    label {
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        margin-right: 2rem;
+        width: 25rem;
+    }
+    textarea {
+        width: 40vw;
+        border: 2px solid gray;
+    }
+    input[type="text"] {
+        margin-bottom: 0;
+        height: 2.6rem;
+        font-size: 2rem;
+        padding: 0 1rem;
+        border: 2px solid gray;
+        margin: 0;
+    }
+    &__text-form-input {
+        width: 40%;
+        input {
+            width: 100%;
+        }
+    }
+    .game-maker__word-table {
+        background-color: white;
+        border: 2px solid $light-blue;
+        .h4 {
+            border-bottom: 1px solid;
+            width: fit-content;
+        }
+
+        input[type=text] {
+            width: calc(100% - 3rem);
+        }
+    }
+    .game-maker__table-head {
+        border-bottom: 2px solid $light-blue;
+        padding: 2rem;
+        position: relative;
+    }
+    .remove-word-button {
+        width: fit-content;
+        background-color: #f89898f5;
+        font-size: 1.3rem;
+        float: right;
+        position: absolute;
+        right: 0;
+        height: 3rem;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #add-word-button {
+        width: fit-content;
+        height: 3rem;
+        padding: .8rem 1.6rem;
+        background-color: $light-blue;
+        color: white;
+        font-size: 2rem;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+    .button {
+        margin: 0 2rem 0 0;
+        cursor: pointer;
+    }
+}

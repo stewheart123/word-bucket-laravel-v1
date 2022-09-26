@@ -140,7 +140,7 @@
             <div class="footer-container d-flex justify-content-between flex-column flex-md-row">
                 <div class="mb-3"><a href="/" class="mb-3">Contact</a></div>
                 <div class="d-flex">
-                    <a href="" target="_blank" class="developer mb-3">created by Stewart Tuckwood @ 2022</a>
+                    <p class="developer mb-3">created by Stewart Tuckwood @ 2022</p>
                 </div>
             </div>
         </div>

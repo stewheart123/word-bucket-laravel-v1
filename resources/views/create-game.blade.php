@@ -28,68 +28,110 @@
 </section>
 
 
-<section class="game-maker-wizard">
-    <div class="container bg-dark bg-gradient text-white mb-3 pb-2">
-        <div class="row ">
-            <div>
-                <div class="d-flex input-flex">
-                    <div class="field-inner">
-                        <label> native word</label>
-                        <input type="text" value="" class="native-input">
-                    </div>
-                    <span class="mt-4">=</span>
-                    <div class="field-inner">
-                        <label> foreign word</label>
-                        <input type="text" value="" class="foreign-input">
-                    </div>
-                    <div class="field-inner">
-                        <label>helper</label>
-                        <input type="text" value="" class="helper-input">
-                    </div>
-                    <!-- <div class="remove-word-button btn btn-secondary btn-lg mt-4">Remove Word</div> -->
-                </div>
-                <!-- can update by bringing in language dropdowns -->
-                </div>
-            <div id="add-word-button" class="btn btn-primary btn-lg col-2 mx-4">Add Word</div>
-            <!-- can update by bringing in language dropdowns -->
-        </div>
-    <div class="row mb-5">
+<section class="game-maker game-maker-wizard">
 <form action="/create-game" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
-          <div class="form-group row">
-              <div class="col-lg-12 p-3 m-2 mt-2">
+{{ csrf_field() }}
+    <div class="game-maker__paper-background container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Create a word list</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="game-maker__row d-flex col-10 offset-1">
+                <label for="GM_TITLE" class="h4" style="font-weight: bold;">Game Title</label>
+                <input type="text" class="chalk-5 form-control form-control-sm" name="GM_TITLE">
+            </div>
+        </div>
 
-                <label class="h3">select native language</label>
-              <select id='native-select' class="ms-3" name="GM_NATIVE_SHORTHAND">
-                @foreach($languages as $native)
-                    <option value="{{$native->LA_SHORTHAND}}">{{$native->LA_DISPLAY_NAME}}
-                    </option>
-                @endforeach
-                </select>
+        <div class="row">
+            <div class="game-maker__row-textarea d-flex col-10 offset-1">
+                <label for="GM_DESCRIPTION" class="h4" style="font-weight: bold;">Game description</label>
+                <textarea type="text" class="chalk-5 form-control form-control-sm" name="GM_DESCRIPTION" ></textarea>
+            </div>
+        </div>
 
-                <label class="h3 ms-5">select foreign language</label>
-              <select id='foreign-select' class="ms-3" name="GM_FOREIGN_SHORTHAND">
-                @foreach($languages as $native)
-                    <option value="{{$native->LA_SHORTHAND}}">{{$native->LA_DISPLAY_NAME}}
-                    </option>
-                @endforeach
+        <div class="row">
+            <div class="game-maker__row d-flex col-10 offset-1">
+                <label class="h4">select native language</label>
+                  <select id='native-select' class="chalk-5" name="GM_NATIVE_SHORTHAND">
+                        @foreach($languages as $native)
+                            <option value="{{$native->LA_SHORTHAND}}" class="chalk-5">{{$native->LA_DISPLAY_NAME}}
+                            </option>
+                        @endforeach
                 </select>
             </div>
-            <div class="col-lg-12 p-3 m-2">
-                <label for="GM_TITLE" class="col-sm-12 col form-label h3" style="font-weight: bold;">Game Title</label>
-                <input class="mb-3" type="text" class="form-control form-control-sm" name="GM_TITLE">
-                <label for="GM_CONTENTS" class="col-sm-12 col form-label h3 d-none" style="font-weight: bold;"></label>
-                <textarea id="gmc-text-area" class="mb-3 h-25 w-50 d-none" type="file" class="form-control form-control-sm" name="GM_CONTENTS"></textarea>
+        </div>
 
-                <label for="GM_DESCRIPTION" class="col-sm-12 col form-label h3" style="font-weight: bold;">Game description</label>
-                <textarea class="mb-3 h-25 w-50" type="text" class="form-control form-control-sm w-100" name="GM_DESCRIPTION" ></textarea>
+        <div class="row">
+            <div class="game-maker__row d-flex col-10 offset-1">
+                <label class="h4">select foreign language</label>
+                    <select id='foreign-select' class="chalk-5" name="GM_FOREIGN_SHORTHAND">
+                        @foreach($languages as $native)
+                            <option value="{{$native->LA_SHORTHAND}}" class="chalk-5">{{$native->LA_DISPLAY_NAME}}
+                            </option>
+                        @endforeach
+                    </select>
+            </div>
+        </div>
 
-                <select class="ms-3" name="GM_PUBLIC">
-                    <option value="1">public</option>
-                    <option value="0">private</option>
-                </select>
-              </div>
-          </div> 
+        <div class="row">
+            <div class="game-maker__row d-flex col-10 offset-1">
+                <label class="h4">select access</label>
+                    <select class="chalk-5" name="GM_PUBLIC">
+                        <option value="1" class="chalk-5">public</option>
+                        <option value="0" class="chalk-5">private</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="game-maker__word-table col-10 offset-1">
+                <div class="game-maker__table-head row">
+                        <div class="col-3">
+                            <label class="h4">Native word</label>
+                        </div>
+
+                        <div class="col-3">
+                            <label class="h4">Foreign word</label>
+                        </div>
+
+                        <div class="col-5">
+                            <label class="h4">Helper text</label>
+                        </div>
+                </div>
+
+                <div class="game-maker__table-head gm-input row">
+                    <div class="col-3">
+                        <input type="text" value="" class="native-input chalk-5">
+                    </div>
+
+                    <div class="col-3">
+                        <input type="text" value="" class="foreign-input chalk-5">
+                    </div>
+
+                    <div class="game-maker__text-form-input">
+                        <input type="text" value="" class="helper-input chalk-5">
+                    </div>
+                    <!-- <div class="remove-word-button">Remove Word</div> -->
+                </div>
+
+                    <!-- can update by bringing in language dropdowns -->
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1 p-0">
+                            <div id="add-word-button">Add Word</div>
+                        </div>
+                    </div>
+                <!-- can update by bringing in language dropdowns -->
+            
+        
+    <div class="row">
+        <label for="GM_CONTENTS" class=" form-label h3" style="font-weight: bold;"></label>
+                <textarea id="gmc-text-area" class="" type="file" class="form-control form-control-sm" name="GM_CONTENTS"></textarea>
+        </div>
+  
+    </div>
           @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -99,13 +141,15 @@
             </ul>
         </div>
       @endif
-      <div class="d-flex pb-4">
-          <div id="ready-button" class="btn btn-primary btn-lg col-2 mx-4">Ready</div>
-          <button id="submit" type="submit" class="btn btn-success btn-lg mx-2 d-block d-none">Submit</button>
+      <div class="row">
+        <div class="col-10 offset-1 d-flex p-0">
+            <div id="ready-button" class="button button--orange text-center">Ready</div>
+            <button id="submit" type="submit" class="button button--orange text-center d-block d-none">Submit</button>
+        </div>
       </div>
-    </form>
     </div><!-- row -->
-    </div><!-- container -->
+</div><!-- container -->
+</form>
   @if (!empty($message)) 
   {{ $message }}
   @endif

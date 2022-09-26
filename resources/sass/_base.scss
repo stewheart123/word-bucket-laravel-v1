@@ -43,7 +43,7 @@ h3, .h3 {
     font-weight: 500;
 
     @include respond(xl) {
-        @include typography(3.6rem, 3.6rem , $quicksand);
+        @include typography(2.8rem, 2.8rem , $quicksand);
     }
 
     // @include respond(md) {
@@ -85,6 +85,11 @@ h4, .h4 {
 }
 .chalk-4 {
     @include typography(2.2rem, 3rem, $pangolin);
+    font-weight: 100;
+    letter-spacing: 1.8px;
+}
+.chalk-5 {
+    @include typography(2rem, 2rem, $pangolin);
     font-weight: 100;
     letter-spacing: 1.8px;
 }

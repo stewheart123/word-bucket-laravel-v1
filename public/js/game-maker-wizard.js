@@ -26,13 +26,13 @@ $('.remove-word-button').click(function() {
 $('#ready-button').click(function() {
     //loops over each input row somehow..
     var isLast = false;
-    $('.input-flex').each(function(index){
+    $('.gm-input').each(function(index){
         //setup vars using selectors, pass them to the function arguments
         var inputNative = $(this).find('.native-input').val();
         var inputForeign = $(this).find('.foreign-input').val();
         var inputHelper = $(this).find('.helper-input').val();
         // console.log( inputHelper);
-        if(index == $('.input-flex').length-1 ) {
+        if(index == $('.gm-input').length-1 ) {
             isLast = true;
         }
             buildJSONword(inputNative, inputForeign, inputHelper, isLast);
@@ -49,10 +49,10 @@ function RemoveRow(obj) {
 }
 
 function newInputRow() {
-    var inputRowMarkupString = ' <div class="d-flex input-flex"><div class="field-inner"><label> native word</label><input type="text" value="" class="native-input"></div><span class="mt-4">=</span><div class="field-inner"><label> foreign word</label><input type="text" value="" class="foreign-input"></div><div class="field-inner"><label>helper</label><input type="text" value="" class="helper-input"></div><div id="remove-word-button" class="remove-word-button btn btn-danger mt-4 btn-sm">Remove Word</div></div>';
-    $('.d-flex.input-flex').last().after(inputRowMarkupString);
-
-    
+    var inputRowMarkupString ='<div class="game-maker__table-head gm-input row"><div class="col-3"><input type="text" value="" class="native-input chalk-5"></div><div class="col-3"><input type="text" value="" class="foreign-input chalk-5"></div><div class="game-maker__text-form-input"><input type="text" value="" class="helper-input chalk-5"></div><div class="remove-word-button">Remove Word</div></div>';
+    //var inputRowMarkupString = ' <div class="d-flex input-flex"><div class="field-inner"><label> native word</label><input type="text" value="" class="native-input"></div><span class="mt-4">=</span><div class="field-inner"><label> foreign word</label><input type="text" value="" class="foreign-input"></div><div class="field-inner"><label>helper</label><input type="text" value="" class="helper-input"></div><div id="remove-word-button" class="remove-word-button btn btn-danger mt-4 btn-sm">Remove Word</div></div>';
+    //$('.d-flex.input-flex').last().after(inputRowMarkupString);
+    $('.gm-input').last().after(inputRowMarkupString);
     $('.remove-word-button').click(function() {
         //updateJSON();
         RemoveRow($(this));
