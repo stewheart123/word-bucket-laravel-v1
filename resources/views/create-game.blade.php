@@ -87,7 +87,7 @@
 
         <div class="row">
             <div class="game-maker__word-table col-10 offset-1">
-                <div class="game-maker__table-head row">
+                <div class="game-maker__table-head d-none d-md-flex row">
                         <div class="col-3">
                             <label class="h4">Native word</label>
                         </div>
@@ -102,16 +102,16 @@
                 </div>
 
                 <div class="game-maker__table-head gm-input row">
-                    <div class="col-3">
-                        <input type="text" value="" class="native-input chalk-5">
+                    <div class="label-holder">
+                        <input type="text" value="" placeholder="native word" class="native-input chalk-5">
                     </div>
 
-                    <div class="col-3">
-                        <input type="text" value="" class="foreign-input chalk-5">
+                    <div class="label-holder">
+                        <input type="text" value="" placeholder="foreign word" class="foreign-input chalk-5">
                     </div>
 
                     <div class="game-maker__text-form-input">
-                        <input type="text" value="" class="helper-input chalk-5">
+                        <input type="text" value="" placeholder="helper text" class="helper-input chalk-5">
                     </div>
                     <!-- <div class="remove-word-button">Remove Word</div> -->
                 </div>
@@ -128,7 +128,7 @@
         
     <div class="row">
         <label for="GM_CONTENTS" class=" form-label h3" style="font-weight: bold;"></label>
-                <textarea id="gmc-text-area" class="" type="file" class="form-control form-control-sm" name="GM_CONTENTS"></textarea>
+                <textarea id="gmc-text-area" class="d-none" type="file" class="form-control form-control-sm" name="GM_CONTENTS"></textarea>
         </div>
   
     </div>

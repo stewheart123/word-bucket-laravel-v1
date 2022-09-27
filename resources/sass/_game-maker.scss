@@ -30,11 +30,19 @@
         flex-direction: row;
         align-items: center;
         margin-bottom: 2.3rem;
+        @include respond(md) {
+            flex-direction: column;
+            align-items: start;
+        }
     }
     &__row-textarea {
         height: 10.4rem;
         overflow-y: scroll;
         padding: 0.6rem;
+        @include respond(md) {
+            flex-direction: column;
+            overflow: hidden;
+        }
     }
     label {
         display: flex;
@@ -46,6 +54,9 @@
     textarea {
         width: 40vw;
         border: 2px solid gray;
+        @include respond(md) {
+            width: 86vw;
+        }
     }
     input[type="text"] {
         margin-bottom: 0;
@@ -57,6 +68,10 @@
     }
     &__text-form-input {
         width: 40%;
+        @include respond(md) {
+            width: 96%;
+            margin-top: 2rem;
+        }
         input {
             width: 100%;
         }
@@ -104,5 +119,11 @@
     .button {
         margin: 0 2rem 0 0;
         cursor: pointer;
+    }
+    .label-holder {
+        width: 25%;
+        @include respond(md) {
+            width: 45%;
+        }
     }
 }
