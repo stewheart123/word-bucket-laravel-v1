@@ -141,7 +141,7 @@
             </ul>
         </div>
       @endif
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-10 offset-1 d-flex p-0">
             <div id="ready-button" class="button button--orange text-center">Ready</div>
             <button id="submit" type="submit" class="button button--orange text-center d-block d-none">Submit</button>

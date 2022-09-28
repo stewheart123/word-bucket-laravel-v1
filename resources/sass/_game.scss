@@ -12,16 +12,47 @@
         display: flex;
         color: $pale;
         padding: 2rem 4rem;
+        min-height: 15rem;
     }
 
     &__word-input {
-        width: 90%;
+        width: calc(100% - 12rem);
+        height: 4rem;
+    }
+    .input-assembly {
+        margin-top: 2rem;
+        align-items: center;
+    }
+    #country-holder {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        margin-right: 1rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .it-flag {
+        background-image: url('../../public/images/italy-flag.png');
+    }
+    .uk-flag {
+        background-image: url('../../public/images/uk-flag.png');
     }
     &__word-input-area {
         width: 50%;
+        position: relative;
         .h1 {
             margin: 0;
         }
+    }
+    div#check-word-button {
+        width: 3rem;
+        height: 3rem;
+        background-color: $primary-blue;
+        bottom: 0;
+        font-size: 2.7rem;
+        cursor: pointer;
+        margin-left: 1rem;
+        margin-top: 1.5rem;
     }
     &__blackboard-shelf {
         width: 100%;
@@ -30,12 +61,12 @@
     }
     &__helper-area {
         width: 50%;
-        padding: 0 5rem;
+        padding: 0;
         font-family: $pangolin;
 
         h4 {
             text-decoration: underline;
-            margin: 3.6rem 0 2rem;
+            margin: 1.6rem 0 2rem;
         }
     }
     &__exit-container {
@@ -55,7 +86,7 @@
     &__squared-paper {
         background-image: linear-gradient(to right, #8dd5ff 1px, transparent 1px),
         linear-gradient(to bottom, #8dd5ff 1px, transparent 1px);
-        height: 6rem;
+        height: fit-content;
         width: 100%;
         background-size: 3rem 3rem;
         padding: 3rem 0;
@@ -70,6 +101,7 @@
         flex-direction: row;
         align-content: baseline;
         height: 10rem;
+        flex-wrap: wrap;
     }
     .progress-bar {
         width: 3rem;
@@ -77,20 +109,30 @@
         display: flex;
         flex-direction: column;
         justify-content: end;
+        margin: 0 1rem;
     }
     .progress-bar__foreign {
         width: 100%;
         height: 3rem;
-        background-color: #56eb56;
+        background-color: #7e7e7e;
     }
     .progress-bar__native {
         width: 100%;
         height: 3rem;
+        background-color: #bdb9b9;
+    }
+    .--correct {
         background-color: #56eb56;
+    }
+    .--wrong {
+        background-color: #f14f39;
     }
     .progress-bar__baseline {
         width: 100%;
         height: 1.7rem;
         background-color: gray;
+        text-align: center;
+        color: white;
+        padding-top: 3px;
     }
 }

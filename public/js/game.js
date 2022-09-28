@@ -1,5 +1,4 @@
-var wordArray = [];
-var allBuckets = [$('#red-bucket'),$('#yellow-bucket'),$('#green-bucket')];
+// var wordArray = [];
 var selectedWordObject ;
 var isUKWord = true;
 var viewLanguage;
@@ -8,25 +7,133 @@ var viewLanguageOptions = ["UK", "IT"];
 var finalRoundComplete = false;
 var wordbundleRaw = $('#data-holder').text();
 var wordBundle = wordbundleRaw;
+wordBundle = $('#data-holder').text();
+var incompleteWords;
+var allDone;
+var words;
 var wordsJS = JSON.parse(wordBundle);
-///console.table(wordBundle);
-//console.table(JSON.parse(wordbundleRaw));
-$(wordsJS["WORDS"]).each(function(index, value){
-    value["ID"] = index +1;
-    value["BUCKET"] = 1;
-    value["IT-CORRECT"] = false;
-    value["UK-CORRECT"] = false;
-    value["ROUND-COMPLETE"] = false;
-    value["CAN-COMPLETE"] = false;
-});
-console.table(wordsJS["WORDS"]);
-var words = wordsJS["WORDS"];
+var correctAnswersTarget;
+var amountIncompleteInRound;
+var currentCorrectAnswers;
+
+initialiseMarkersAndWords();
+
+swapLanguage(isUKWord);
+
+deal();
 
 $('#input-field').focus(function(){
     $('#input-field').val('');
 });
 
-swapLanguage(isUKWord);
+$('#check-word-button').click(function(){
+    if(!finalRoundComplete) {
+        progressGame();
+    }
+});
+
+$("body").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $('#check-word-button').click();
+    }
+});
+
+function progressGame() {
+    console.clear();
+    if($('#input-field').val() == selectedWordObject[hiddenLanguage]) {
+        selectedWordObject["ROUND-COMPLETE"] = true;
+        selectedWordObject[hiddenLanguage+'-CORRECT'] = true;
+
+        if(viewLanguage == "UK") {
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__native').addClass('--correct');
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__native').removeClass('--wrong');
+            currentCorrectAnswers++;
+        }
+        else {
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__foreign').addClass('--correct');
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__foreign').removeClass('--wrong');
+            currentCorrectAnswers++;
+        }
+        
+        showAnswerFeedback(true, selectedWordObject);
+    }
+
+    else {
+        if(viewLanguage == "UK") {
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__native').addClass('--wrong');
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__native').removeClass('--correct');
+        }
+        else {
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__foreign').addClass('--wrong');
+            $('#PB-'+selectedWordObject["ID"]).find('.progress-bar__foreign').removeClass('--correct');
+        }
+
+        selectedWordObject[hiddenLanguage+'-CORRECT'] = false;
+        selectedWordObject["CAN-COMPLETE"] = false;
+        finalRoundComplete = false;
+        showAnswerFeedback(false, selectedWordObject);
+    }
+    $('#input-field').val('');
+    selectedWordObject["ROUND-COMPLETE"] = true;
+
+    amountIncompleteInRound--;
+    allDone = words.length;
+    $(words).each(function(index, value){
+        if(value["ID"] == selectedWordObject["ID"]) {
+            value = selectedWordObject;
+        }
+        if(value["ROUND-COMPLETE"] == true) {
+            allDone--;
+        }
+        if (allDone == 0) {
+            //checkGameComplete();
+            swapLanguage(isUKWord);
+            resetRound();
+        }
+    });
+    // console.table(words);
+    deal();
+    checkGameAndRound();
+}
+
+function initialiseMarkersAndWords(){
+    $('.game-area__progress-bars-container').html('');
+    $(wordsJS["WORDS"]).each(function(index, value){
+        value["ID"] = index +1;
+        value["BUCKET"] = 1;
+        value["IT-CORRECT"] = false;
+        value["UK-CORRECT"] = false;
+        value["ROUND-COMPLETE"] = false;
+        value["CAN-COMPLETE"] = false;
+
+        $('.game-area__progress-bars-container').append('<div id="PB-'+value["ID"] +'" class="progress-bar"><div class="progress-bar__foreign"></div><div class="progress-bar__native"></div><div class="progress-bar__baseline">'+ value["ID"] +'</div></div>');
+    });
+    console.table(wordsJS["WORDS"]);
+    words = wordsJS["WORDS"];    
+    correctAnswersTarget =  words.length * 2;
+    amountIncompleteInRound = words.length * 2;
+    currentCorrectAnswers = 0;
+
+     $('.progress-bar').css('width', 'calc('+(100/ words.length )+'% - 20px)');
+    //$('.progress-bar').css('width', 'calc(10% - 20px)');
+}
+
+function showAnswerFeedback(answer, obj) {
+    $('#helper-area').html('');
+    if (answer == true) {
+        $('#helper-area').append('<p class="chalk-3">' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</p><br><em class="chalk-4">' + obj["HELPER"] + '</em>');
+        $('#result-underline').html("correct");
+    }
+    if ( answer == false ) {
+        $('#helper-area').append('<p class="chalk-3"> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</p><br><em class="chalk-4">' + obj["HELPER"] + '</em>');
+        $('#result-underline').html("incorrect");
+    }
+    if( answer == "win") {
+        $('#helper-area').append('<h1 class="green blink">YOU WIN!</h1>');
+        $('.input-assembly').css('display', 'none');
+        $('#back-button').css('display', 'block');
+    }
+}
 
 function swapLanguage(boolChoice) {
     if(boolChoice == true) {
@@ -49,51 +156,6 @@ function swapLanguage(boolChoice) {
     isUKWord = !isUKWord;
 }
 
-function visuallyArrangeWordsInBuckets() {
-    $(allBuckets).each(function(index,bucket){
-        $(bucket).html('');
-    });
-
-    $(words).each(function(index,individual) {
-        //conditional count
-        var correctCount = 0; 
-        if(individual["IT-CORRECT"] == true) {
-            correctCount++;
-        } 
-        if(individual["UK-CORRECT"] == true) {
-            correctCount++;
-        } 
-
-
-        $(allBuckets)[individual["BUCKET"]].append('<p id="'+individual["ID"]+'" class="color-'+correctCount +'">'+individual["ID"] +'</p>');
-    });
-}
-
-visuallyArrangeWordsInBuckets();
-
-function qualifyBucketMove(obj){
-    if(obj["IT-CORRECT"] == false && obj["UK-CORRECT"] == false){
-        if(obj["BUCKET"]-1 != -1 ) {
-            obj["BUCKET"] = obj["BUCKET"] -1;
-        }
-    }
-    if(obj["IT-CORRECT"] == true && obj["UK-CORRECT"] == true) {
-        if(obj["BUCKET"]+1 != 3 ) {
-            obj["BUCKET"] = obj["BUCKET"] +1;
-             obj["IT-CORRECT"] = false;
-             obj["UK-CORRECT"] = false;
-        }
-
-        if(obj["BUCKET"]+1 == 3 ) {
-            obj["CAN-COMPLETE"] = true;
-            checkGameComplete();
-            finalRoundComplete = true;
-        }
-    }
-    return obj;
-    
-}
-
 function resetRound() {
     $(words).each(function(index,value) {
         value["ROUND-COMPLETE"] = false;
@@ -101,111 +163,37 @@ function resetRound() {
 }
 
 function deal() {
-    // INSTEAD OF LOOPING OV3ER WORDS- MAKE ARRAY OF RANDOM NUMBERS, 
-    //while random number array is not nothing, get word index based on random array
-    //remove item from random array ( so its shorter and shorter)
     var wordsRandomised = words.slice().sort(function(a, b) { return 0.5 - Math.random() }); // returns a new sorted array
     
     $(wordsRandomised).each(function(index, value){
         if(value["ROUND-COMPLETE"] == false) {
             selectedWordObject = value;
-            //console.log(selectedWordObject["IT"]);
             $('#current-word').text(selectedWordObject[viewLanguage]);
             return false;
         }
     });
 }
 
+function checkGameAndRound(){
+    if(amountIncompleteInRound == 0) {
+        if( currentCorrectAnswers == correctAnswersTarget) {
+            showAnswerFeedback( "win", null);
+            finalRoundComplete = true;
+        }
+        else {
+            initialiseMarkersAndWords();
+        }
+    }
+}
+
 function checkGameComplete(){
-    var incompleteWords = words.length;
+    incompleteWords = words.length;
     $(words).each(function(index, value){
         if(value["CAN-COMPLETE"] == true  && finalRoundComplete == true) {
             incompleteWords--;
         }
         if(incompleteWords == 0 ) {
-            visuallyArrangeWordsInBuckets();
             showAnswerFeedback( "win", null);
         }
     });
-}
-
-deal();
-
-$('#check-word-button').click(function(){
-    console.clear();
-    if($('#input-field').val() == selectedWordObject[hiddenLanguage]) {
-        console.log('correct!');
-        selectedWordObject["ROUND-COMPLETE"] = true;
-        selectedWordObject[hiddenLanguage+'-CORRECT'] = true;
-        if($('#' +selectedWordObject["ID"]).hasClass('blue')){
-            $('#' +selectedWordObject["ID"]).removeClass('blue');    
-            $('#' +selectedWordObject["ID"]).addClass('yellow');    
-        }
-        else {
-            $('#' +selectedWordObject["ID"]).addClass('blue');    
-        }
-        
-        showAnswerFeedback(true, selectedWordObject);
-
-    }
-    else {
-        console.log('wrong');
-        selectedWordObject[hiddenLanguage+'-CORRECT'] = false;
-        selectedWordObject["CAN-COMPLETE"] = false;
-        finalRoundComplete = false;
-        if($('#' +selectedWordObject["ID"]).hasClass('yellow')) {
-            $('#' +selectedWordObject["ID"]).removeClass('yellow');
-            $('#' +selectedWordObject["ID"]).addClass('blue');
-        }
-        else {
-            $('#' +selectedWordObject["ID"]).removeClass('yellow');
-            $('#' +selectedWordObject["ID"]).removeClass('blue');
-        }
-        showAnswerFeedback(false, selectedWordObject);
-    }
-    $('#input-field').val('');
-    selectedWordObject["ROUND-COMPLETE"] = true;
-    selectedWordObject = qualifyBucketMove(selectedWordObject);
-
-    var allDone = words.length;
-    $(words).each(function(index, value){
-        if(value["ID"] == selectedWordObject["ID"]) {
-            value = selectedWordObject;
-
-        }
-        visuallyArrangeWordsInBuckets();
-        if(value["ROUND-COMPLETE"] == true) {
-            allDone--;
-        }
-        if (allDone == 0) {
-            //checkGameComplete();
-            swapLanguage(isUKWord);
-            resetRound();
-            // visuallyArrangeWordsInBuckets();
-        }
-    });
-    console.table(words);
-    deal();
-
-});
-
-$("body").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $('#check-word-button').click();
-    }
-});
-
-function showAnswerFeedback(answer, obj) {
-    $('#helper-area').html('');
-    if (answer == true) {
-        $('#helper-area').append('<p class="green">correct!</p><strong> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</strong><br><em class="sub-helper">' + obj["HELPER"] + '</em>');
-    }
-    if ( answer == false ) {
-        $('#helper-area').append('<p class="red">incorrect</p><strong> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</strong><br><em class="sub-helper">' + obj["HELPER"] + '</em>');
-    }
-    if( answer == "win") {
-        $('#helper-area').append('<p class="green blink">YOU WIN!</p><strong> </strong>');
-        $('.input-assembly').css('display', 'none');
-        $('#back-button').css('display', 'block');
-    }
 }
