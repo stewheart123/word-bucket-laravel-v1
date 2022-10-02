@@ -54,10 +54,6 @@ class CreateGameController extends Controller
         return view('create-game', compact('languages'));
     }
 
-    public function lexiconIndex() {
-        return view('lexicon');
-    }
-
     public function loggedOutGames() {    
         $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',11)->get();
         

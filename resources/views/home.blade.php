@@ -78,7 +78,7 @@
         </div>
 
         <div class="row">
-            <a href="/lexicon-index">
+            <a href="{{ url('lexicon-index') }}">
                 <div class="button button--orange text-center">I want to memorise a language</div>
             </a>
         </div>

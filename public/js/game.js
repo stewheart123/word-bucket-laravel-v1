@@ -132,6 +132,7 @@ function showAnswerFeedback(answer, obj) {
         $('#helper-area').append('<h1 class="green blink">YOU WIN!</h1>');
         $('.input-assembly').css('display', 'none');
         $('#back-button').css('display', 'block');
+        $('.game-area__completion-form').fadeIn("slow");
     }
 }
 

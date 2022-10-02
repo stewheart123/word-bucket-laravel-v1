@@ -34,7 +34,12 @@
     </div>
     @endforeach
 </div>
-
+<form action="store-completed-word-set" method="POST" enctype="multipart/form-data">
+    @csrf         
+ 
+    <input type = "hidden" name = "WS_ID" value = "1" />
+    <button type="submit" class="btn btn-dark">Mark Completed</button>
+</form>
 
 </section>
 @endsection

@@ -62,15 +62,16 @@
     <div class="container">
         <div class="row">
             <div class="lexicon--relative col-12">
-                    <a href="/game/10" class="lexicon__word-list-container">
-                        @for ($i = 0; $i < 25; $i++)
-                        <div class="lexicon__word-list-tile">
-                            <p>title</p>
+                    <div class="lexicon__word-list-container">
+                    @foreach ($all_lexicon_beginner as $lexicon_beginner)
+                    <a id="tile-{{$lexicon_beginner->WS_ID}}" href="/lexicon/{{$lexicon_beginner->WS_ID}}" class="lexicon__word-list-tile">
+                            <p>{{$lexicon_beginner->WS_TITLE}}</p>
+                            <em>{{$lexicon_beginner->WS_DESCRIPTION}}</em>
                             <span>#tag #tag #tag</span>
-                        </div>
-                        @endfor
                     </a>
+                    @endforeach
                 </div>
+            </div>
         </div>
         <div class="row">
             <div class="lexicon__category-container col-12 d-flex">
@@ -79,11 +80,15 @@
                         <div class="lexicon__category-pill">
                             category
                         </div>
-                        @endfor
+                @endfor
             </div>
         </div>
     </div>
-
-
+    <div class="lexicon__completed-lessons d-none">
+        @foreach($user_completed_lesson as $user_completed)
+        <p class="lexicon__completed-individual">{{$user_completed}}
+        @endforeach
+    </div>
 </section>
+<script type="text/javascript" src="{{asset('js/lexicon-visual-manager.js')}}"></script>
 @endsection

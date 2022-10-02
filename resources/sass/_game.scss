@@ -135,4 +135,31 @@
         color: white;
         padding-top: 3px;
     }
+    &__completion-form {
+        position: absolute;
+        width: 47%;
+        height: 19rem;
+        background-color: $black;
+        top: 0;
+        left: 2rem;
+        display: none;
+
+        button {
+            font-size: 2rem;
+            padding: .8rem 1.6rem;
+            cursor: pointer;
+        }
+    }
+
+    &__completion-form-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__assembly {
+        position: relative;
+    }
 }
