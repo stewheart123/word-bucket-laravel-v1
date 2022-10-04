@@ -1,0 +1,55 @@
+.user-created-content {
+    h3 {
+        margin: 5rem auto;
+        width: fit-content;
+        border-bottom: 1px solid $black;
+    }
+
+    &__word-list-container {
+        position: relative;
+        width: 100%;
+        background-color: $black;
+        padding: 1rem;
+        z-index: 2;
+        height: 37rem;
+        align-content: baseline;
+        border: 2px solid $primary-red;
+    }
+
+    &__word-list-tile {
+        background-color: lightgray;
+        color: white;
+        text-align: center;
+        display: flex;
+        width: calc(25% - 1rem);
+        height: 11rem;
+        flex-direction: column;
+        margin: 0.5rem;
+        padding: 2rem 1rem;
+    }
+    &.--lang-pair {
+        color: $black;
+    }
+    .chalk-4 {
+        margin-bottom: .3rem;
+        margin-top: 0;
+    }
+    em {
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+    }
+
+    &__word-list-tile.--user {
+        background-color: $primary-red;
+        border: 2px solid white;
+    }
+    &__word-list-tile.--public {
+        background-color: $primary-blue;
+        border: 2px solid grey;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: white;
+    }
+}

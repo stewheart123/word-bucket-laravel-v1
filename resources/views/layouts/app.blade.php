@@ -11,9 +11,11 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="{{ url('/css/styles.css') }}"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -22,21 +24,33 @@
     <div id="app">
         <nav class="header d-flex align-items-center">
             <div class="container d-flex justify-content-between">
-                <div class="d-flex align-items-start flex-column flex-md-row w-50">
-                    <a class="header__site-title me-5" href="{{ url('/') }}">
+                <div class="d-flex align-items-center flex-column flex-md-row w-50">
+                    <!-- <a class="header__site-title me-5" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
+                    </a> -->
+                    <a href="{{ url('/') }}" class="ml6 header__site-title me-1">
+                        <span class="text-wrapper">
+                            <span class="letters">{{ config('app.name', 'Laravel') }}</span>
+                        </span>
                     </a>
+
                     @if (Auth::check())              
-                        <a class="header__menu ms-5" href="/games-index">Learn</a>
-                        <a class="header__menu ms-5" href="/adversaries">Adversaries</a>
+                        <!-- <a class="header__menu ms-5" href="/games-index">Learn</a> -->
+                        <!-- <a class="hover-menu header__menu ms-5" href="/adversaries">Adversaries</a> -->
+                        <div class="ms-5 sub-menu">Learn
+                        <div class="sub-menu-inner">
+                            <a class="header__menu" href="/games-index">User content</a>
+                            <a class="header__menu" href="{{ url('lexicon-index') }}">Lexicon</a>
+                        </div>
+                        </div>
                         <a class="header__menu ms-5" href="/create">Create</a>
                         @endif
                         @guest
-                            <a href="/games-index-demo" class="header__menu">Demo</a>
+                            <a href="{{ url('lexicon-index') }}" class=" ms-5 header__menu">Demo</a>
                         @endguest
                 </div>
                 @guest
-                <div class="d-flex">
+                <div class="d-flex align-items-center">
                             @if (Route::has('login'))
                             <div class="ms-5">
                                 <a href="{{ route('login') }}" class="header__menu">{{ __('Login') }}</a>
@@ -51,7 +65,7 @@
                             @endif
                         </div>
                     @else 
-                    <div class="ms-5">
+                    <div class="ms-5 d-flex flex-column justify-content-center">
                     <a class="header__menu" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -142,5 +156,27 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml6 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: false})
+.add({
+    duration: 750,
+}).add({
+    targets: '.ml6 .letter',
+    translateY: ["1.1em", 0],
+    translateZ: 0,
+    duration: 750,
+    delay: (el, i) => 50 * i
+  }).add({
+    targets: '.ml6',
+    // opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+    </script>
 </body>
 </html>

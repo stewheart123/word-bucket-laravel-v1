@@ -15,25 +15,27 @@ class LexiconController extends Controller
 {
     public function lexiconIndex() {
 
-        $current_user = DB::table('user_details')
-        ->join('users', 'user_details.UD_LINKING_ID', '=', 'users.id')
-        ->select( 'user_details.*', 'users.*' )
-        ->where('users.id', '=', Auth::user()->id)->first();
+        if(Auth::check()) { 
+            $current_user = DB::table('user_details')
+            ->join('users', 'user_details.UD_LINKING_ID', '=', 'users.id')
+            ->select( 'user_details.*', 'users.*' )
+            ->where('users.id', '=', Auth::user()->id)->first();
+    
+            $user_completed_lesson = $current_user->UD_META;
+            $user_completed_lesson = json_decode($user_completed_lesson);
 
-        $all_lexicon_beginner = DB::table('word_sets')
-        ->where('WS_LEVEL', 'beginner')
-        ->select('WS_ID','WS_TITLE','WS_DESCRIPTION')
-        ->get();
-        $user_completed_lesson = $current_user->UD_META;
-        $user_completed_lesson = json_decode($user_completed_lesson);
-        //$user_completed_lesson = (array)$user_completed_lesson;
-         //dd((array)$user_completed_lesson);
-        //  $result = array_merge((array)$adver_json, (array)$new_adversary_id);
-        //  $result = array_unique($result);
-        // foreach($current_user->UD_META)
+        } else {
+            $user_completed_lesson = '';
+        }
 
-        //dd($all_lexicon_beginner);
+            $all_lexicon_beginner = DB::table('word_sets')
+            ->where('WS_LEVEL', 'beginner')
+            ->select('WS_ID','WS_TITLE','WS_DESCRIPTION')
+            ->get();
+
+    
         return view('lexicon', compact('all_lexicon_beginner', 'user_completed_lesson'));
+    
     }
 
     public function LoadLexiconGame($game_data) {

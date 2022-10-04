@@ -25,84 +25,69 @@
         </div>
     </div>
 </section>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            
-<h1>select a category to learn</h1>
 
-@if (Auth::check())              
-<div class="d-flex justify-content-start">
-    <div class="memory-area flex-column">
-    <div class="d-flex flex-row text-white">
-        <label>Your Memories</label>
-        <div id="unlock" class="locked btn btn-dark btn-sm black-bt ms-5"><p class="m-0">unlock</p></div>
+<section class="user-created-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">            
+                <h3>user created content</h3>
+            </div>
+        </div>
     </div>
-        @foreach ($personal_games as $personal_game)
-        <a href="/game/{{$personal_game->GM_ID}}">
-            <div class="p-2 m-2 game-container card text-left bg-success bg-gradient text-white">
-                <strong><p>{{$personal_game->GM_TITLE}}</p></strong>
-                <p>{{$personal_game->GM_DESCRIPTION}}</p>
-                @if($personal_game->GM_PUBLIC == 1) 
-                    <em>public</em>
-                @else 
-                    <em>private</em>
-                @endif
-                    @foreach ($languages as $lang)
-                        @if($personal_game->GM_NATIVE_ID == $lang->LA_ID)
-                            <span><p>{{$lang->LA_DISPLAY_NAME}}</p>
-                        @endif
+
+    <div class="container">
+        <div class="row">
+            <div class="lexicon--relative col-12">
+                    <div class="swiper mySwiper user-created-content__word-list-container">
+                        <div class="swiper-wrapper"> 
+                    @foreach ($personal_games as $personal_game)
+                    <a href="/game/{{$personal_game->GM_ID}}" class="swiper-slide user-created-content__word-list-tile --user">
+                            <p class="chalk-4">{{$personal_game->GM_TITLE}}</p>
+                            <em class="chalk-5">{{$personal_game->GM_DESCRIPTION}}</em>
+                            @if($personal_game->GM_PUBLIC == 1) 
+                                <em class="chalk-5">public</em>
+                            @else 
+                                <em class="chalk-5">private</em>
+                            @endif
+                            <span class="chalk-5 user-created-content --lang-pair">ITA / UK</span>
+                    </a>
                     @endforeach
-                    @foreach ($languages as $lang)
-                        @if($personal_game->GM_FOREIGN_ID == $lang->LA_ID)
-                            <p>/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
-                        @endif
-                    
-                    @endforeach
-                    <form action="destroyGame" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <input type = "hidden" name = "GM_ID" value = "{{$personal_game->GM_ID}}" />
-                                <button type="submit" class="delete-lesson-button d-none btn btn-outline-danger btn-sm">Delete</button>
-                    </form>
+
+                    <!-- <a href="/lexicon/2" class="swiper-slide user-created-content__word-list-tile --public">
+                            <p class="chalk-4">test second</p>
+                            <em class="chalk-5">the second lexicon</em>
+                            <span class="chalk-5 user-created-content --lang-pair">ITA / UK</span>
+                    </a> -->
+
+                    </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                </div>
             </div>
-        </a>
-        @endforeach
-    </div>
-    <!--  when clicked, shows conainer with data including list of games? bio, profile pic, nationality?-->
-    <div class="memory-area flex-column text-white">
-        <p>Wordbucket Offical</p>
+        </div>
 
-        @foreach ($wordbucket_official_games as $wordbucket_game)
-        <a href="/game/{{$wordbucket_game->GM_ID}}">
-            <div class="p-2 m-2 game-container card text-left bg-dark bg-gradient text-white">
-                <strong><p>{{$wordbucket_game->GM_TITLE}}</p></strong>
-                <p>{{$wordbucket_game->GM_DESCRIPTION}}</p>
-            </div>
-        </a>
-        @endforeach
     </div>
-
-    @foreach($user_adversaries as $adversary)
-    <div class="memory-area flex-column text-white">
-        <p>{{$adversary->name}}</p>
-        @foreach($all_public_games as $public_game)
-        @if ($public_game->GM_AUTHOR_ID == $adversary->id)
-        <a href="/game/{{$public_game->GM_ID}}">
-            <div class="p-2 m-2 game-container card text-left">
-                <strong><p>{{$public_game->GM_TITLE}}</p></strong>
-                <p>{{$public_game->GM_DESCRIPTION}}</p>
-            </div>
-        </a>    
-        @endif
-        @endforeach
-    </div>
-    @endforeach
-
-</div>
-
-</div>
-    </div>
-</div>
-@endif
+</section>
     <script type="text/javascript" src="{{asset('js/unlock-delete-button.js')}}"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        grid: {
+          rows: 2,
+        },
+        spaceBetween: 20,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 @endsection

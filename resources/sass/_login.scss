@@ -27,10 +27,14 @@
         justify-content: space-between;
         padding: 0 3rem;
     }
-    input#email, input#password {
+    input#name,
+    input#email,
+    input#password,
+    input#password-confirm {
         font-size: 2rem;
         border: 0;
         width: 60%;
+        border: 2px solid #80808036;
     }
     label {
         display: flex;

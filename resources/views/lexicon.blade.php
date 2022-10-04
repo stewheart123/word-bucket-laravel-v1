@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-none">
             <div class="lexicon__category-container col-12 d-flex">
                 <label>Category :</label> 
                 @for ($i = 0; $i < 25; $i++)
@@ -84,11 +84,13 @@
             </div>
         </div>
     </div>
-    <div class="lexicon__completed-lessons d-none">
-        @foreach($user_completed_lesson as $user_completed)
-        <p class="lexicon__completed-individual">{{$user_completed}}
-        @endforeach
-    </div>
+    @if (Auth::check())     
+        <div class="lexicon__completed-lessons d-none">
+            @foreach($user_completed_lesson as $user_completed)
+            <p class="lexicon__completed-individual">{{$user_completed}}
+            @endforeach
+        </div>
+    @endif
 </section>
 <script type="text/javascript" src="{{asset('js/lexicon-visual-manager.js')}}"></script>
 @endsection

@@ -1,4 +1,5 @@
 .header {
+    position: relative;
     height: 90px;
     background-color: $primary-blue;
     @include respond(xxl) {
@@ -22,4 +23,29 @@
         font-weight: 400;
     }
 
+}
+.sub-menu:hover .sub-menu-inner {
+    display: block;
+}
+
+.sub-menu-inner:hover {
+    display: block;
+}
+.sub-menu {
+    color: #FFFCF5;
+    font-size: 21px;
+    position: relative;
+    font-weight: 400;
+    height: 100%;
+    padding-top: 2rem;
+}
+.sub-menu-inner {
+    position: absolute;
+    background-color: $primary-blue;
+    width: 18rem;
+    left: -50%;
+    bottom: -74px;
+    padding: 1.6rem;
+    box-shadow: 6px 6px 10px #625c5c;
+    display: none;
 }

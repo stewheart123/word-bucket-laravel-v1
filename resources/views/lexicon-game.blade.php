@@ -59,6 +59,7 @@
                 </div>
                 <div class="game-area__blackboard-shelf"></div>
 
+            @if (Auth::check())              
             <div class="game-area__completion-form">
                 <div class="game-area__completion-form-inner">
                 <form action="{{url('store-completed-word-set')}}" method="POST" enctype="multipart/form-data">
@@ -68,6 +69,7 @@
                 </form>
                 </div>
             </div>
+            @endif
     
     
 
