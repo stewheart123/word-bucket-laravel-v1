@@ -123,16 +123,21 @@ function showAnswerFeedback(answer, obj) {
     if (answer == true) {
         $('#helper-area').append('<p class="chalk-3">' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</p><br><em class="chalk-4">' + obj["HELPER"] + '</em>');
         $('#result-underline').html("correct");
+        $('#result-underline').css('color', '#56eb56');
+        $('#your-answer').text('');
     }
     if ( answer == false ) {
         $('#helper-area').append('<p class="chalk-3"> ' + obj[viewLanguage] + " = " + obj[hiddenLanguage] + '</p><br><em class="chalk-4">' + obj["HELPER"] + '</em>');
         $('#result-underline').html("incorrect");
+        $('#result-underline').css('color', '#f14f39');
+        $('#your-answer').text("Your answer: " + $('#input-field').val() );
     }
     if( answer == "win") {
         $('#helper-area').append('<h1 class="green blink">YOU WIN!</h1>');
         $('.input-assembly').css('display', 'none');
         $('#back-button').css('display', 'block');
         $('.game-area__completion-form').fadeIn("slow");
+        $('#your-answer').text('');
     }
 }
 

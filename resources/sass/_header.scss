@@ -21,6 +21,9 @@
         color : $pale;
         font-size: 21px;
         font-weight: 400;
+        @include respond(md) {
+            display: none;
+        }
     }
 
 }

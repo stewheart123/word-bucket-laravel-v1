@@ -7,7 +7,9 @@
         </div>
         <div class="row">
             <h2 class="h4">Select a word set to learn</h2>
+            @if (!Auth::check()) 
             <h2 class="h4">create a free account to save your progress</h2>
+            @endif
         </div>
         <div class="row">
             <div class="hero-home__underline">

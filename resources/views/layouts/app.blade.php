@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="header d-flex align-items-center">
             <div class="container d-flex justify-content-between">
-                <div class="d-flex align-items-center flex-column flex-md-row w-50">
+                <div class="d-flex align-items-center flex-column flex-md-row">
                     <!-- <a class="header__site-title me-5" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a> -->
@@ -146,16 +146,19 @@
             @yield('lexicon-index')
         </main>
     </div>
-    <footer>
-        <div class="container">
-            <div class="footer-container d-flex justify-content-between flex-column flex-md-row">
-                <div class="mb-3"><a href="/" class="mb-3">Contact</a></div>
-                <div class="d-flex">
-                    <p class="developer mb-3">created by Stewart Tuckwood @ 2022</p>
-                </div>
+    
+</body>
+
+
+        <footer>
+        <div class="footer-container d-flex justify-content-between flex-column flex-md-row">
+            <div class="mb-3"><a href="/" class="mb-3">Contact</a></div>
+            <div class="d-flex">
+                <p class="developer mb-3">created by Stewart Tuckwood @ 2022</p>
             </div>
         </div>
     </footer>
+
     <script>
         // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml6 .letters');
@@ -178,5 +181,4 @@ anime.timeline({loop: false})
     delay: 1000
   });
     </script>
-</body>
 </html>

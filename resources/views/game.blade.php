@@ -56,6 +56,7 @@
                     <div class="game-area__helper-area">
                         <h4 id="result-underline" class="chalk-3">helper text area</h4>
                         <p id="helper-area" class="chalk-4">This is the helper text area wher yo get extra stuff</p>
+                        <p id="your-answer" class="chalk-5">Compare your response to the correct answer here..</p>
 
                     </div>
                 </div>

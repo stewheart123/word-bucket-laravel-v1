@@ -107,5 +107,10 @@
     .button {
         margin-top: 9rem;
         min-width: 28.4rem;
+        
+        @include respond(md) {
+            width: 19rem;
+            min-width: unset;
+        }   
     }
 }
