@@ -38,10 +38,10 @@
                         <!-- <a class="header__menu ms-5" href="/games-index">Learn</a> -->
                         <!-- <a class="hover-menu header__menu ms-5" href="/adversaries">Adversaries</a> -->
                         <div class="ms-5 sub-menu">Learn
-                        <div class="sub-menu-inner">
-                            <a class="header__menu" href="/games-index">User content</a>
-                            <a class="header__menu" href="{{ url('lexicon-index') }}">Lexicon</a>
-                        </div>
+                            <div class="sub-menu-inner">
+                                <a class="header__menu" href="/games-index">User content</a>
+                                <a class="header__menu" href="{{ url('lexicon-index') }}">Lexicon</a>
+                            </div>
                         </div>
                         <a class="header__menu ms-5" href="/create">Create</a>
                         @endif
@@ -64,7 +64,8 @@
                             </div>
                             @endif
                         </div>
-                    @else 
+                    @endguest
+                    @if (Auth::check())              
                     <div class="ms-5 d-flex flex-column justify-content-center">
                     <a class="header__menu" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -75,66 +76,43 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                @endguest
-            </div>
-        </nav>                    
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-
-                <div class="d-none collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                    @guest
-                        <a class="navbar-brand text-white" href="/games-index-demo">Demo</a>
-                    @endguest
-                        <!-- <a class="navbar-brand" href="/language-select">Language</a> -->
-                        @if (Auth::check())              
-                        <a class="navbar-brand text-white" href="/games-index">Learn</a>
-                        <a class="navbar-brand text-white" href="/adversaries">Adversaries</a>
-                        <a class="navbar-brand text-white" href="/create">Create</a>
                         @endif
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                    </li>
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                
-        </nav>
-</div>
-
+                <div id="burger-menu"></div>
+            </div>
+        </nav>                   
+        <!--  mobile menu -->
+<div class="mobile-slide-menu-mask">
+            <div id="mobile-side-menu">
+        @if (Auth::check())                  
+            <a class="h3" href="/games-index">User content</a>
+            <a class="h3" href="{{ url('lexicon-index') }}">Lexicon</a>
+            <a class="h3" href="/create">Create</a>
+        @endif
+        @guest
+            <a href="{{ url('lexicon-index') }}" class="h3">Demo</a> 
+            
+            @if (Route::has('login'))    
+            <a href="{{ route('login') }}" class="h3">{{ __('Login') }}</a>   
+            @endif
+            
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="h3">{{ __('Register') }}</a>
+            @endif
+            @endguest
+            @if (Auth::check())              
+            <a class="h3" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+            </a>
+                    
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            @endif
+    </div>
+</div><!-- mobile menu mask -->
+               <!-- m m end -->
         <main>
             @yield('content')
             @yield('game')
@@ -159,26 +137,7 @@
         </div>
     </footer>
 
-    <script>
-        // Wrap every letter in a span
-var textWrapper = document.querySelector('.ml6 .letters');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-anime.timeline({loop: false})
-.add({
-    duration: 750,
-}).add({
-    targets: '.ml6 .letter',
-    translateY: ["1.1em", 0],
-    translateZ: 0,
-    duration: 750,
-    delay: (el, i) => 50 * i
-  }).add({
-    targets: '.ml6',
-    // opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
-    </script>
+    
+    <script type="text/javascript" src="{{asset('js/logo-animation.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/mobile-menu.js')}}"></script>
 </html>

@@ -24,7 +24,7 @@
             <div class="lexicon__level-button-container d-flex">
                 <div id="elementary" class="lexicon__level-button selected">Elementary
                     <div class="lexicon__milestone-a">
-                        <label>Your progress</label>
+                        <label>first 200 words</label>
                     </div>
                 </div>
                 <div id="pre-intermediate" class="lexicon__level-button">Pre-intermediate

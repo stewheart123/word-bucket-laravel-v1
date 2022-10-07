@@ -24,8 +24,9 @@ class CreateGameController extends Controller
 
         $all_public_games = DB::table('games')
         ->where('GM_PUBLIC','=', 1)
-        ->where('GM_AUTHOR_ID','!=', 11)
+        //->where('GM_AUTHOR_ID','!=', 11)
         ->where('GM_AUTHOR_ID','!=', Auth::user()->id)->get();
+        // dd($all_public_games);
 
         $current_user_details = DB::table('user_details')
         ->join('users', 'user_details.UD_LINKING_ID', '=', 'users.id')

@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="hero-home__image-container">
-                <div class="hero-home__circle-image" style="background-image:url('images/person-studying.jpg');"></div>
+                <div class="hero-home__circle-image" style="background-image:url('images/lady-learning.jpg');"></div>
             </div>
     </div>
 

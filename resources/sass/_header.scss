@@ -41,14 +41,73 @@
     font-weight: 400;
     height: 100%;
     padding-top: 2rem;
+    @include respond(md) {
+        display: none;
+    }
 }
 .sub-menu-inner {
     position: absolute;
     background-color: $primary-blue;
     width: 18rem;
     left: -50%;
-    bottom: -74px;
+    bottom: -107px;
     padding: 1.6rem;
     box-shadow: 6px 6px 10px #625c5c;
     display: none;
+    a {
+        line-height: 2;
+    }
+}
+#burger-menu {
+    width: 4rem;
+    height: 4rem;
+    background-color: $primary-red;
+    border-radius: 1rem;
+    border: 1px solid white;
+    position: absolute;
+    right: 2rem;
+    display: none;
+
+    @include respond(md) {
+        display: block;
+    }
+}
+.mobile-slide-menu-mask {
+    overflow: hidden;
+    position: absolute;
+    display: block;
+    right: 0;
+    display: none;
+    padding: 0 0 2rem 2rem;
+
+    @include respond(md) {
+        display: block;
+    }
+}
+#mobile-side-menu {
+    transition: 0.5s;
+    padding: 2rem;
+    position: relative;
+    right: -22rem;
+    flex-direction: column;
+    display: none;
+    background-color: $pale;
+    background-image: linear-gradient(to bottom, #8dd5ff 1px, transparent 1px);
+    background-size: 1rem 3rem;
+    border-bottom: 4px solid #c87329;
+    border-left: 4px solid #c87329;
+    box-shadow: 6px 6px 10px #625c5c;
+    display: none;
+
+    @include respond(md) {
+        display: flex;
+    }
+    a {
+        color: $black;
+        line-height: 2;
+        text-decoration: underline;
+    }
+}
+.active {
+    right: 0 !important;
 }

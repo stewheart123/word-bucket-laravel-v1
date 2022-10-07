@@ -38,26 +38,49 @@
     <div class="container">
         <div class="row">
             <div class="lexicon--relative col-12">
-                    <div class="swiper mySwiper user-created-content__word-list-container">
-                        <div class="swiper-wrapper"> 
+                <div class="swiper mySwiper user-created-content__word-list-container">
+                    <div class="swiper-wrapper">
+
+                    <!-- PERSONAL GAME TILES-->
                     @foreach ($personal_games as $personal_game)
                     <a href="/game/{{$personal_game->GM_ID}}" class="swiper-slide user-created-content__word-list-tile --user">
-                            <p class="chalk-4">{{$personal_game->GM_TITLE}}</p>
-                            <em class="chalk-5">{{$personal_game->GM_DESCRIPTION}}</em>
-                            @if($personal_game->GM_PUBLIC == 1) 
-                                <em class="chalk-5">public</em>
-                            @else 
-                                <em class="chalk-5">private</em>
+                        <p class="chalk-4">{{$personal_game->GM_TITLE}}</p>
+                        <em class="chalk-5">{{$personal_game->GM_DESCRIPTION}}</em>
+                        @if($personal_game->GM_PUBLIC == 1) 
+                            <em class="chalk-5">public</em>
+                        @else 
+                            <em class="chalk-5">private</em>
+                        @endif
+                        @foreach ($languages as $lang)
+                            @if($personal_game->GM_NATIVE_ID == $lang->LA_ID)
+                            <span class="user-created-content --lang-pair"><p class="chalk-5">{{$lang->LA_DISPLAY_NAME}}</p>
                             @endif
-                            <span class="chalk-5 user-created-content --lang-pair">ITA / UK</span>
+                        @endforeach
+                        @foreach ($languages as $lang)
+                            @if($personal_game->GM_FOREIGN_ID == $lang->LA_ID)
+                            <p class="chalk-5">/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
+                            @endif
+                        @endforeach
                     </a>
                     @endforeach
-
-                    <!-- <a href="/lexicon/2" class="swiper-slide user-created-content__word-list-tile --public">
-                            <p class="chalk-4">test second</p>
-                            <em class="chalk-5">the second lexicon</em>
-                            <span class="chalk-5 user-created-content --lang-pair">ITA / UK</span>
-                    </a> -->
+                    
+                    <!-- PUBLIC GAME TILES-->
+                    @foreach ($all_public_games as $public_game)
+                    <a href="/game/{{$public_game->GM_ID}}" class="swiper-slide user-created-content__word-list-tile --public">
+                            <p class="chalk-4">{{$public_game->GM_TITLE}}</p>
+                            <em class="chalk-5">{{$public_game->GM_DESCRIPTION}}</em>
+                            @foreach ($languages as $lang)
+                            @if($public_game->GM_NATIVE_ID == $lang->LA_ID)
+                            <span class="user-created-content --lang-pair"><p class="chalk-5">{{$lang->LA_DISPLAY_NAME}}</p>
+                            @endif
+                        @endforeach
+                        @foreach ($languages as $lang)
+                            @if($public_game->GM_FOREIGN_ID == $lang->LA_ID)
+                            <p class="chalk-5">/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
+                            @endif
+                        @endforeach
+                    </a>
+                    @endforeach
 
                     </div>
                         <div class="swiper-button-next"></div>
@@ -73,21 +96,5 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        grid: {
-          rows: 2,
-        },
-        spaceBetween: 20,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
+    <script type="text/javascript" src="{{asset('js/swiper-setup.js')}}"></script>
 @endsection

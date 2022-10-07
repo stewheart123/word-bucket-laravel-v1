@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="hero-home__image-container">
-                <div class="hero-home__circle-image" style="background-image:url('images/person-studying.jpg');"></div>
+                <div class="hero-home__circle-image" style="background-image:url('images/person-smiling-circle.jpg');"></div>
             </div>
         </div>
         <div class="row">

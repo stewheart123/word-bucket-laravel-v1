@@ -11,7 +11,7 @@ body {
     position: relative;
 }
 main {
-    overflow-x: hidden;
+    // overflow-x: hidden;
 }
 * {
     font-family: $quicksand;
@@ -136,7 +136,7 @@ li {
     overflow: hidden;
   }
   
-  .ml6 .letter {
+.ml6 .letter {
     display: inline-block;
     line-height: 1em;
-  }
+}

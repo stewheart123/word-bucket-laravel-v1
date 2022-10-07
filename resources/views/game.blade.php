@@ -77,25 +77,8 @@
     </div>
 </section>
 
-<section class="game">
-    <div class="container bg-dark bg-gradient text-white my-5 py-5">
-        <div class="col-12">
+<!-- GAME DATA -->
+<div id="data-holder" class="d-none">{{$returned_game_data}}</div>
 
-
-    <div id="data-holder" class="d-none">{{$returned_game_data}}</div>
-    
-<!-- <div class="buckets">
-    <div class="bucket red" id="red-bucket">test</div>
-    <div class="bucket yellow" id="yellow-bucket">test</div>
-    <div class="bucket green" id="green-bucket">test</div>
-</div> -->
-
-<!-- <div class="input-assembly">
-    
-    <div class="input-container">
-    </div>
-</div> -->
-
-</section>
 <script type="text/javascript" src="{{asset('js/game.js')}}"></script>
 @endsection

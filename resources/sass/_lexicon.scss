@@ -133,13 +133,17 @@
     &--relative:after {
         content: "";
         display: block;
-        width: calc(100% + 4rem);
+        width: calc(100% + 1rem);
         height: 1rem;
         background-color: $primary-red;
         bottom: -10px;
         position: absolute;
         z-index: 2;
         left: -0.5rem;
+        @include respond(md) {
+            width: 100%;
+            left: 0;
+        }
     }
     &__word-list-container {
         position: relative;
@@ -153,17 +157,20 @@
         height: 37rem;
         align-content: baseline;
         border: 2px solid $primary-red;
+        box-sizing: border-box;
     }
 
     &__word-list-tile {
         background-color: lightgray;
-        color: white;
         text-align: center;
         display: flex;
         width: calc(25% - 1rem);
         height: 11rem;
         flex-direction: column;
         margin: 0.5rem;
+        font-weight: bold;
+        color: $black;
+
         @include respond(lg) {
             width: calc(33.3% - 1rem);
         }
@@ -200,4 +207,9 @@
 .selected {
     background-color: $light-blue;
     color: $pale;
+}
+#intermediate,
+#pre-intermediate, 
+#advanced {
+    opacity: 0.3;
 }
