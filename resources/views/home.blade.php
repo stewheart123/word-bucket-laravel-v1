@@ -13,7 +13,7 @@
                 <ul>
                     <li class="h5">Train your brain to memorize new words and phrases</li>
                     <li class="h5">Create word lists that are meaningful to you, then share them with other users</li>
-                    <li class="h5">Retain and apply your knowledge by reading some comics from our free publication store - sized for Amazon Kindle devices in mind.</li>
+                    <li class="h5">Track your progress through our Lexicon course - from beginner to advanced.</li>
                     <li class="h5">Feel confidence that you can recall words without multiple choice answers - because life doesn't come with subtitles...</li>
                 </ul>
             </div>

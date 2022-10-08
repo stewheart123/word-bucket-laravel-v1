@@ -10,16 +10,10 @@ body {
     margin: 0;
     position: relative;
 }
-main {
-    // overflow-x: hidden;
-}
 * {
     font-family: $quicksand;
     box-sizing: border-box;
 }
-// .container {
-//     overflow-x: hidden;
-// }
 h1, .h1 {
     @include typography(4.2rem , 5.2rem, $quicksand);
     font-weight: 300;
