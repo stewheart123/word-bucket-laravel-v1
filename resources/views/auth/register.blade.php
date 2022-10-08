@@ -42,7 +42,7 @@
                         </div>
                         
                         <div class="login__password">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
                             <input id="password-confirm" type="password" class="chalk-3 form-control" name="password_confirmation" required autocomplete="new-password">          
                         </div>
                         <div class="login__submit d-flex justify-content-end">
