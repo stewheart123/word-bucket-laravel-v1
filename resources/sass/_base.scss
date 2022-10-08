@@ -15,6 +15,7 @@ main {
 }
 * {
     font-family: $quicksand;
+    box-sizing: border-box;
 }
 // .container {
 //     overflow-x: hidden;
@@ -96,6 +97,11 @@ h4, .h4 {
 .chalk-5 {
     @include typography(2rem, 2rem, $pangolin);
     font-weight: 100;
+    letter-spacing: 1.8px;
+}
+.chalk-6 {
+    @include typography(1.3rem, 1.3rem, $pangolin);
+    font-weight: bold;
     letter-spacing: 1.8px;
 }
 p {

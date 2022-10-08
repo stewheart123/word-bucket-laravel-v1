@@ -23,13 +23,17 @@
         text-align: center;
         display: flex;
         width: calc(25% - 1rem);
-        height: 11rem;
+        height: 15rem;
         flex-direction: column;
         margin: 0.5rem;
         padding: 2rem 1rem;
     }
     &.--lang-pair {
         color: $black;
+        position: absolute;
+        bottom: 1rem;
+        left: 0;
+        width: 100%;
         
         p {
             display: inline;
@@ -38,12 +42,11 @@
     .chalk-4 {
         margin-bottom: .3rem;
         margin-top: 0;
+        font-size: 1.8rem;
     }
     em {
-        font-size: 1.7rem;
         margin-bottom: 1rem;
     }
-
     &__word-list-tile.--user {
         background-color: $primary-red;
         border: 2px solid white;
@@ -51,6 +54,29 @@
     &__word-list-tile.--public {
         background-color: $primary-blue;
         border: 2px solid grey;
+    }
+
+    form.delete-form {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+    }
+
+    div#unlock {
+        margin-top: 2rem;
+        background-image: url(/public/images/lock.jpg);
+        width: 3rem;
+        height: 3rem;
+        border-radius: 1rem;
+        border: 3px solid $black;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .--unlock {
+        filter: invert(100%);
+        border: 3px dotted white !important;
     }
 
     .swiper-button-next,

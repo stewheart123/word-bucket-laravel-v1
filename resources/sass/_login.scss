@@ -10,6 +10,10 @@
         padding: 0;
         max-width: 50%;
         height: fit-content;    
+        @include respond(md) {
+            max-width: 100%;
+            width: 100%;
+        }
     }
 
     h1 {
@@ -26,6 +30,9 @@
         border-bottom: 2px solid $light-blue;
         justify-content: space-between;
         padding: 0 3rem;
+        @include respond(lg) {
+            font-size: 1.6rem;
+        }
     }
     input#name,
     input#email,

@@ -3,7 +3,7 @@
 @section('content')
 <section class="login hero-home">
 <div class="container">
-    <div class="row">        
+    <div class="row hero-home__row">        
             <div class="login__card col-6">
                 <h1>{{ __('Login') }}</h1>
 

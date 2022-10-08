@@ -6,12 +6,14 @@ $('#unlock').click(function(){
 
 function unlock() {
     if(isLocked) {
-        $('.delete-lesson-button').removeClass('d-none');
-        $('.delete-lesson-button').addClass('d-block');
+        $('.delete-form').removeClass('d-none');
+        $('.delete-form').addClass('d-block');
+        $('#unlock').addClass('--unlock');
     }
     else {
-        $('.delete-lesson-button').removeClass('d-block');
-        $('.delete-lesson-button').addClass('d-none');
+        $('.delete-form').removeClass('d-block');
+        $('.delete-form').addClass('d-none');
+        $('#unlock').removeClass('--unlock');
     }
     isLocked = !isLocked
 }

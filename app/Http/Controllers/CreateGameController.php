@@ -15,18 +15,12 @@ class CreateGameController extends Controller
     //
     public function index(){
         $personal_games = DB::table('games')->where('GM_AUTHOR_ID','=', Auth::user()->id )->get();
-        // if($personal_games == null) {
-        //     $personal_games = [];
-        // }
-        //dd($personal_games);
 
         $wordbucket_official_games = DB::table('games')->where('GM_AUTHOR_ID',11)->get();
 
         $all_public_games = DB::table('games')
         ->where('GM_PUBLIC','=', 1)
-        //->where('GM_AUTHOR_ID','!=', 11)
         ->where('GM_AUTHOR_ID','!=', Auth::user()->id)->get();
-        // dd($all_public_games);
 
         $current_user_details = DB::table('user_details')
         ->join('users', 'user_details.UD_LINKING_ID', '=', 'users.id')
@@ -43,8 +37,6 @@ class CreateGameController extends Controller
             ->where('users.id', '!=', Auth::user()->id)
             ->where('users.id', '!=', 11)
             ->get();
-
-       //dd($user_adversaries);
 
         $languages = DB::table('languages')->get();
         return view('games-index', compact('personal_games', 'wordbucket_official_games' ,'all_public_games', 'user_adversaries', 'languages'));
@@ -76,7 +68,6 @@ class CreateGameController extends Controller
         
         $native_ID = DB::table('languages')->where('LA_SHORTHAND',$GM_NATIVE_SHORTHAND)->first();
         $foreign_ID = DB::table('languages')->where('LA_SHORTHAND',$GM_FOREIGN_SHORTHAND)->first();
-        // dd($native_ID->LA_ID);
 
         Game::create([
             'GM_AUTHOR_ID'   => $GM_AUTHOR_ID,

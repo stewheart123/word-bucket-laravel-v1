@@ -41,6 +41,7 @@
     font-weight: 400;
     height: 100%;
     padding-top: 2rem;
+    box-sizing: initial;
     @include respond(md) {
         display: none;
     }
@@ -61,12 +62,16 @@
 #burger-menu {
     width: 4rem;
     height: 4rem;
-    background-color: $primary-red;
     border-radius: 1rem;
-    border: 1px solid white;
     position: absolute;
     right: 2rem;
     display: none;
+    background-image: url(/public/images/pasta-menu.png);
+    border: 3px solid #E9574E;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
 
     @include respond(md) {
         display: block;
@@ -79,6 +84,7 @@
     right: 0;
     display: none;
     padding: 0 0 2rem 2rem;
+    z-index: 1;
 
     @include respond(md) {
         display: block;

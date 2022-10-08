@@ -45,22 +45,28 @@
                     @foreach ($personal_games as $personal_game)
                     <a href="/game/{{$personal_game->GM_ID}}" class="swiper-slide user-created-content__word-list-tile --user">
                         <p class="chalk-4">{{$personal_game->GM_TITLE}}</p>
-                        <em class="chalk-5">{{$personal_game->GM_DESCRIPTION}}</em>
+                        <em class="chalk-6">{{$personal_game->GM_DESCRIPTION}}</em>
                         @if($personal_game->GM_PUBLIC == 1) 
-                            <em class="chalk-5">public</em>
+                            <em class="chalk-6">public</em>
                         @else 
-                            <em class="chalk-5">private</em>
+                            <em class="chalk-6">private</em>
                         @endif
                         @foreach ($languages as $lang)
                             @if($personal_game->GM_NATIVE_ID == $lang->LA_ID)
-                            <span class="user-created-content --lang-pair"><p class="chalk-5">{{$lang->LA_DISPLAY_NAME}}</p>
+                            <span class="user-created-content --lang-pair"><p class="chalk-6">{{$lang->LA_DISPLAY_NAME}}</p>
                             @endif
                         @endforeach
                         @foreach ($languages as $lang)
                             @if($personal_game->GM_FOREIGN_ID == $lang->LA_ID)
-                            <p class="chalk-5">/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
+                            <p class="chalk-6">/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
                             @endif
                         @endforeach
+
+                        <form class="delete-form d-none" action="destroyGame" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type = "hidden" name = "GM_ID" value = "{{$personal_game->GM_ID}}" />
+                                <button type="submit" class="user_created_content__delete-button">Delete</button>
+                        </form>
                     </a>
                     @endforeach
                     
@@ -68,15 +74,15 @@
                     @foreach ($all_public_games as $public_game)
                     <a href="/game/{{$public_game->GM_ID}}" class="swiper-slide user-created-content__word-list-tile --public">
                             <p class="chalk-4">{{$public_game->GM_TITLE}}</p>
-                            <em class="chalk-5">{{$public_game->GM_DESCRIPTION}}</em>
+                            <em class="chalk-6">{{$public_game->GM_DESCRIPTION}}</em>
                             @foreach ($languages as $lang)
                             @if($public_game->GM_NATIVE_ID == $lang->LA_ID)
-                            <span class="user-created-content --lang-pair"><p class="chalk-5">{{$lang->LA_DISPLAY_NAME}}</p>
+                            <span class="user-created-content --lang-pair"><p class="chalk-6">{{$lang->LA_DISPLAY_NAME}}</p>
                             @endif
                         @endforeach
                         @foreach ($languages as $lang)
                             @if($public_game->GM_FOREIGN_ID == $lang->LA_ID)
-                            <p class="chalk-5">/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
+                            <p class="chalk-6">/ {{$lang->LA_DISPLAY_NAME}}</p> </span>
                             @endif
                         @endforeach
                     </a>
@@ -88,6 +94,7 @@
                 </div>
             </div>
         </div>
+        <div id="unlock" class=""></div>
 
     </div>
 </section>
