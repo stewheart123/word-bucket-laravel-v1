@@ -13,7 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="{{ url('/css/styles.css') }}"> -->
+    <link rel="stylesheet" href="{{ url('/css/styles.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
@@ -40,7 +40,7 @@
                         <div class="ms-5 sub-menu">Learn
                             <div class="sub-menu-inner">
                                 <a class="header__menu" href="/games-index">User content</a>
-                                <a class="header__menu" href="{{ url('lexicon-index') }}">Lexicon</a>
+                                <a class="header__menu" href="/lexicon-index">Lexicon</a>
                             </div>
                         </div>
                         <a class="header__menu ms-5" href="/create">Create</a>

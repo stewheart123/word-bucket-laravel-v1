@@ -15,6 +15,7 @@ var wordsJS = JSON.parse(wordBundle);
 var correctAnswersTarget;
 var amountIncompleteInRound;
 var currentCorrectAnswers;
+var inputRaw;
 
 initialiseMarkersAndWords();
 
@@ -40,7 +41,8 @@ $("body").keyup(function(event) {
 
 function progressGame() {
     console.clear();
-    if($('#input-field').val() == selectedWordObject[hiddenLanguage]) {
+    inputRaw = $('#input-field').val();
+    if(inputRaw.toLowerCase() == selectedWordObject[hiddenLanguage].toLowerCase()) {
         selectedWordObject["ROUND-COMPLETE"] = true;
         selectedWordObject[hiddenLanguage+'-CORRECT'] = true;
 

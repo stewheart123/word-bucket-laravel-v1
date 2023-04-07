@@ -1,0 +1,20 @@
+{
+  "public/images/italy-flag.png": {
+    "file": "assets/italy-flag.52e50ab3.png",
+    "src": "public/images/italy-flag.png"
+  },
+  "public/images/uk-flag.png": {
+    "file": "assets/uk-flag.cd1c0547.png",
+    "src": "public/images/uk-flag.png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app.aac2dc08.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app.52e79208.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
