@@ -69,7 +69,7 @@
                     <a id="tile-{{$lexicon_beginner->WS_ID}}" href="/lexicon/{{$lexicon_beginner->WS_ID}}" class="lexicon__word-list-tile">
                             <p>{{$lexicon_beginner->WS_TITLE}}</p>
                             <em>{{$lexicon_beginner->WS_DESCRIPTION}}</em>
-                            <span>#tag #tag #tag</span>
+                            <!-- <span>#tag #tag #tag</span> -->
                     </a>
                     @endforeach
                 </div>

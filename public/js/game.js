@@ -1,6 +1,6 @@
 // var wordArray = [];
 var selectedWordObject ;
-var isUKWord = true;
+var isUKWord = false;
 var viewLanguage;
 var hiddenLanguage
 var viewLanguageOptions = ["UK", "IT"];

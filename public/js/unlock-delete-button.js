@@ -3,7 +3,6 @@ $('#unlock').click(function(){
     unlock();
 });
 
-
 function unlock() {
     if(isLocked) {
         $('.delete-form').removeClass('d-none');
